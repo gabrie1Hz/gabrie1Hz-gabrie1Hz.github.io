@@ -1,78 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p1r4t3h00k - Security from the Shadows</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-* {margin: 0; padding: 0; box-sizing: border-box;}
-body {background: linear-gradient(45deg, #000000, #0a0a0a, #111111); color: #ffffff; font-family: 'Share Tech Mono', monospace; min-height: 100vh;}
-body::before {content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px; animation: binaryFlow 10s linear infinite; z-index: -1;}
-@keyframes binaryFlow {0% { transform: translateY(0);} 100% { transform: translateY(20px);}}
-#container {display: flex; min-height: 100vh;}
-#sidebar {width: 220px; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-right: 2px solid #ffffff; padding: 20px; display: flex; flex-direction: column; box-shadow: 0 0 20px rgba(255,255,255,0.12);}
-#logo {text-align: center; margin-bottom: 20px;}
-#logo img {width: 120px; height: auto; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 15px rgba(255,255,255,0.12); transition: all 0.3s ease;}
-#logo img:hover {transform: scale(1.05); box-shadow: 0 0 25px rgba(255,255,255,0.22);}
-.nav-link {color: #ffffff; text-decoration: none; padding: 12px; margin: 6px 0; display: block; border: 1px solid transparent; border-radius: 5px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;}
-.nav-link:hover {background: rgba(255,255,255,0.06); border-color: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.08); transform: translateX(6px);}
-.nav-link.active {background: rgba(255,255,255,0.12); border-color: #ffffff; color: #ffffff;}
-.nav-link i {color: #ffffff; margin-right: 8px; width: 16px; text-align: center;}
-#content {flex: 1; padding: 36px; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);}
-h1 {font-family: 'Orbitron', monospace; font-size: 3.2em; color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.5); margin-bottom: 12px; animation: glow 2s ease-in-out infinite alternate;}
-@keyframes glow {from { text-shadow: 0 0 20px rgba(255,255,255,0.5);} to { text-shadow: 0 0 30px rgba(255,255,255,0.8);}}
-.subtitle {font-size: 1.2em; color: #cccccc; margin-bottom: 14px; font-weight: 300;}
-.terminal-prompt {color: #ffffff; font-weight: bold; margin-bottom: 18px;}
-.description {font-size: 1.02em; line-height: 1.7; color: #e6e6e6; margin-bottom: 28px; max-width: 900px;}
-.skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px;}
-.skill-card {background: rgba(0,0,0,0.65); border: 2px solid #ffffff; border-radius: 10px; padding: 18px; transition: all 0.25s ease; position: relative; overflow: hidden;}
-.skill-card::before {content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); transition: left 0.5s ease;}
-.skill-card:hover::before {left: 100%;}
-.skill-card:hover {transform: translateY(-6px); box-shadow: 0 12px 30px rgba(255,255,255,0.06); border-color: #cccccc;}
-.skill-icon {font-size: 2.2em; margin-bottom: 10px; text-align: center; color: #ffffff;}
-.skill-title {font-family: 'Orbitron', monospace; font-size: 1.1em; color: #ffffff; margin-bottom: 8px; text-align: center;}
-.skill-description {color: #cccccc; line-height: 1.5; text-align: center;}
-.social-links {margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap;}
-.social-link {color: #ffffff; text-decoration: none; padding: 10px 18px; border: 2px solid #ffffff; border-radius: 6px; transition: all 0.2s ease; background: rgba(0,0,0,0.6); font-weight:bold;}
-.social-link:hover {background: rgba(255,255,255,0.06); box-shadow: 0 0 12px rgba(255,255,255,0.12); transform: translateY(-3px);}
-footer{margin-top:28px;color:#bdbdbd;font-size:0.9em;text-align:center}
-@media (max-width: 768px) {#container {flex-direction: column;} #sidebar {width:100%; border-right:none; border-bottom:2px solid #ffffff;} h1{font-size:2em;} .skills-grid{grid-template-columns:1fr}}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>p1r4t3h00k - Proyectos</title>
+
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      background:#000;
+      color:#fff;
+      font-family:'Share Tech Mono',monospace;
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    /* ===== Fondo Matrix (blanco/gris) ===== */
+    #matrix{
+      position:fixed;inset:0;
+      z-index:-2;
+      background:#000;
+    }
+    /* Neblina de puntos tenue encima del matrix (igual que index/poc) */
+    body::before{
+      content:"";position:fixed;inset:0;
+      background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
+      background-size:20px 20px;
+      z-index:-1; pointer-events:none;
+    }
+
+    /* ===== Layout ===== */
+    #container{display:flex;min-height:100vh}
+    #sidebar{
+      width:200px;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);
+      border-right:2px solid #fff;padding:20px;display:flex;flex-direction:column;
+      box-shadow:0 0 20px rgba(255,255,255,.25)
+    }
+    #logo{text-align:center;margin-bottom:20px}
+    #logo img{
+      width:120px;border-radius:50%;border:2px solid #fff;
+      box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
+    }
+    #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
+    .nav-link{
+      color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
+      border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
+      text-transform:uppercase;letter-spacing:1px;font-weight:bold
+    }
+    .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
+    .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
+    .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
+    #content{flex:1;padding:40px}
+
+    h1{
+      font-family:'Orbitron',monospace;font-size:3.2em;color:#fff;
+      text-shadow:0 0 18px rgba(255,255,255,.45);
+      margin-bottom:10px
+    }
+    .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:18px}
+    .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:24px}
+    .description{
+      font-size:1.05em;line-height:1.8;color:#e6e6e6;
+      margin-bottom:22px;max-width:980px
+    }
+
+    /* ===== Controles de filtro (opcionales) ===== */
+    .filters{
+      display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px
+    }
+    .chip{
+      border:2px solid #fff;border-radius:999px;padding:6px 12px;
+      font-size:.82rem;cursor:pointer;user-select:none
+    }
+    .chip.active,.chip:hover{background:#fff;color:#000}
+
+    /* ===== Grid de proyectos ===== */
+    .proj-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      gap:24px;
+    }
+    .proj-card{
+      background:rgba(0,0,0,.65);
+      border:2px solid #fff;border-radius:16px;padding:22px;
+      position:relative;transition:.25s ease;
+      box-shadow:0 0 20px rgba(255,255,255,.15);
+    }
+    .proj-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(255,255,255,.25);border-color:#e6e6e6}
+    .pill{
+      position:absolute;top:10px;right:10px;
+      font-size:.72rem;letter-spacing:.6px;
+      border:2px solid #fff;border-radius:999px;padding:3px 10px;
+      color:#111;background:#fff;font-weight:bold
+    }
+    .proj-title{
+      display:block;font-family:'Orbitron',monospace;
+      font-size:1.22rem;margin:6px 0 6px 0
+    }
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px 0}
+    .badge{border:2px solid #fff;border-radius:12px;padding:2px 8px;font-size:.78rem}
+    .status{border-color:#9ae6b4}          /* verde sutil para estado */
+    .proj-desc{color:#d5d5d5;font-size:.98rem;line-height:1.55;min-height:88px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border:2px solid #fff;border-radius:10px;
+      color:#fff;text-decoration:none;font-weight:bold;transition:.2s
+    }
+    .btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
+    .btn i{width:16px;text-align:center}
+
+    footer{margin-top:28px;color:#bdbdbd;font-size:.9em;text-align:center}
+
+    @media (max-width:768px){
+      #container{flex-direction:column}
+      #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
+      h1{font-size:2.4em}
+    }
+  </style>
 </head>
 <body>
-    <div id="container">
-        <div id="sidebar">
-            <div id="logo">
-                <img src="gotr00t_wallpaper.png" alt="logo">
-            </div>
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-            <a href="poc.html" class="nav-link"><i class="fas fa-bug"></i>PoC</a>
-            <a href="projects.html" class="nav-link active"><i class="fas fa-code"></i>Projects</a>
-            <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guides</a>
-            <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
-            <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a>
-        </div>
-        <div id="content">
-<h1>Projects</h1>
-<p class='subtitle'>c0d3Ninja</p>
-<p class='terminal-prompt'>p1r4t3h00k@hacker:~$ Arsenal loaded. Tools & repos.</p>
+  <!-- Canvas del efecto Matrix -->
+  <canvas id="matrix"></canvas>
 
-<div class='description'>
-<div class='description'><p>Projects showcase placeholder.</p></div>
-</div>
-            <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
-        </div>
+  <div id="container">
+    <div id="sidebar">
+      <div id="logo">
+        <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
+      </div>
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
+      <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
+      <a href="projects.html" class="nav-link active"><i class="fas fa-code"></i>Proyectos</a>
+      <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guías</a>
+      <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
+      <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contacto</a>
     </div>
-    <script>
-        // hover border effect
-        document.querySelectorAll('.skill-card').forEach(card => {
-            card.addEventListener('mouseenter', () => { card.style.borderColor = '#cccccc'; });
-            card.addEventListener('mouseleave', () => { card.style.borderColor = '#ffffff'; });
-        });
-        // simulate init
-        setTimeout(()=>{ const t = document.querySelector('.terminal-prompt'); if(t) t.textContent = 'p1r4t3h00k@hacker:~$ Access granted. Explore the digital underground.'; }, 900);
-    </script>
+
+    <div id="content">
+      <h1>Proyectos</h1>
+      <p class="subtitle">@p1r4t3h00k</p>
+      <p class="terminal-prompt">p1r4t3h00k@projects:~$ Arsenal de desarrollo y dashboards.</p>
+
+      <div class="description">
+        Recopilación de proyectos destacados. Cada tarjeta incluye stack, estado y enlaces rápidos.
+      </div>
+
+      <!-- Filtros (puedes activarlos con JS más adelante) -->
+      <div class="filters">
+        <span class="chip active">Todos</span>
+        <span class="chip">Backend</span>
+        <span class="chip">Frontend</span>
+        <span class="chip">Dashboards</span>
+        <span class="chip">.NET</span>
+        <span class="chip">Python</span>
+        <span class="chip">PHP</span>
+      </div>
+
+      <!-- Grid de proyectos -->
+      <section class="proj-grid">
+
+        <article class="proj-card">
+          <span class="pill">ACTIVO</span>
+          <span class="proj-title">Django — Administración de Biblioteca</span>
+          <div class="meta">
+            <span class="badge">Django</span>
+            <span class="badge">CRUD</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge status">v0.9</span>
+          </div>
+          <p class="proj-desc">Gestión bibliotecaria con préstamos, catálogos y usuarios. Énfasis en arquitectura limpia y buenas prácticas de backend.</p>
+          <div class="btns">
+            <a class="btn" href="https://github.com/gabrie1Hz/Django-Administracion-Biblioteca" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <span class="pill">ACTIVO</span>
+          <span class="proj-title">Módulo de Hospitalización</span>
+          <div class="meta">
+            <span class="badge">.NET/Blazor</span>
+            <span class="badge">SQL</span>
+            <span class="badge status">v1.1</span>
+          </div>
+          <p class="proj-desc">Módulo clínico para gestión de hospitalizaciones: flujos médicos, formularios y persistencia de datos.</p>
+          <div class="btns">
+            <a class="btn" href="https://github.com/gabrie1Hz/Modulo-Hospitalizacion" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <span class="pill">MANTENIMIENTO</span>
+          <span class="proj-title">Gráficos Dinámicos</span>
+          <div class="meta">
+            <span class="badge">PHP</span>
+            <span class="badge">Dashboards</span>
+            <span class="badge">Charting</span>
+            <span class="badge status">v0.8</span>
+          </div>
+          <p class="proj-desc">Paneles con visualizaciones para seguimiento de métricas y reportes operativos.</p>
+          <div class="btns">
+            <a class="btn" href="https://github.com/gabrie1Hz/Graficos-Dinamicos" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <span class="pill">PLAN</span>
+          <span class="proj-title">Dashboard de Producción</span>
+          <div class="meta">
+            <span class="badge">Python</span>
+            <span class="badge">ETL</span>
+            <span class="badge">SQL</span>
+            <span class="badge status">Roadmap</span>
+          </div>
+          <p class="proj-desc">ETL + visualizaciones para controlar métricas de producción (POC: mango line). Integración con base de datos y alertas.</p>
+          <div class="btns">
+            <a class="btn" href="#" onclick="return false;"><i class="fas fa-eye"></i>Demo (próx.)</a>
+          </div>
+        </article>
+
+      </section>
+
+      <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
+    </div>
+  </div>
+
+  <script>
+    // Mensaje tipo terminal
+    setTimeout(()=>{
+      const t=document.querySelector('.terminal-prompt');
+      if(t) t.textContent='p1r4t3h00k@projects:~$ Repos sincronizados. Despliega cuando quieras.';
+    },1400);
+
+    // ===== Canvas Matrix (idéntico a index/poc) =====
+    (function(){
+      const c=document.getElementById('matrix');
+      const ctx=c.getContext('2d');
+      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
+      resize();
+      window.addEventListener('resize',resize);
+
+      const letters='01';
+      const fontSize=16;
+      const columns=Math.floor(c.width/fontSize);
+      const drops=Array(columns).fill(1);
+
+      function draw(){
+        ctx.fillStyle='rgba(0,0,0,0.08)';
+        ctx.fillRect(0,0,c.width,c.height);
+
+        ctx.fillStyle='rgba(255,255,255,0.85)';
+        ctx.font=fontSize+'px Share Tech Mono';
+
+        for(let i=0;i<drops.length;i++){
+          const text=letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+          if(drops[i]*fontSize>c.height && Math.random()>0.975){drops[i]=0;}
+          drops[i]++;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
 </body>
 </html>
