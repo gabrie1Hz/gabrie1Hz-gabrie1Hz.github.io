@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("[data-typing]").forEach(el=>{const t=el.getAttribute("data-typing");let i=0;el.textContent="";const id=setInterval(()=>{el.textContent+=t[i++];if(i>=t.length)clearInterval(id)},18);});});
