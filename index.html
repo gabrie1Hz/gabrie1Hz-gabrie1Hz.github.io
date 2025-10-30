@@ -60,11 +60,25 @@
     .social-link{color:#fff;text-decoration:none;padding:12px 25px;border:2px solid #fff;border-radius:5px;transition:.3s;background:rgba(0,0,0,.8);font-weight:bold}
     .social-link:hover{background:rgba(255,255,255,.1);box-shadow:0 0 15px rgba(255,255,255,.5);transform:translateY(-3px)}
 
+    /* Estilo tipado para el mensaje que corre abajo */
+    #ticker{
+      font-family:'Share Tech Mono', monospace;
+      font-size:1.05rem;
+      color:#cfcfcf;
+      letter-spacing:.4px;
+      text-shadow:0 0 10px rgba(255,255,255,.25);
+      padding:6px 0;
+      display:block;
+      border-top:1px solid rgba(255,255,255,.15);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
     @media (max-width:768px){
       #container{flex-direction:column}
       #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
       h1{font-size:2.5em}
       .skills-grid{grid-template-columns:1fr}
+      #ticker{font-size:.95rem}
     }
   </style>
 </head>
