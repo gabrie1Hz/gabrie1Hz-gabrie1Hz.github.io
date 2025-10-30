@@ -32,8 +32,7 @@
       content:"";position:fixed;inset:0;
       background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
       background-size:20px 20px;
-      z-index:-1;
-      pointer-events:none;
+      z-index:-1; pointer-events:none;
     }
 
     /* ===== Layout ===== */
@@ -49,7 +48,6 @@
       box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
     }
     #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
-
     .nav-link{
       color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
       border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
@@ -58,7 +56,6 @@
     .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
     .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
     .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
-
     #content{flex:1;padding:40px}
 
     h1{
@@ -68,7 +65,6 @@
     }
     .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:24px}
     .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:26px}
-
     .description{
       font-size:1.05em;line-height:1.8;color:#e6e6e6;
       margin-bottom:28px;max-width:980px
@@ -95,28 +91,23 @@
       box-shadow:0 10px 28px rgba(255,255,255,.25);
       border-color:#e6e6e6;
     }
-
     .pill{
       position:absolute;top:10px;right:10px;
       font-size:.72rem;letter-spacing:.6px;
       border:2px solid #fff;border-radius:999px;padding:3px 10px;
       color:#111;background:#fff;font-weight:bold
     }
-
     .poc-title{
       display:block;
       font-family:'Orbitron',monospace;
       font-size:1.25rem;margin:8px 0 6px 0
     }
-    .meta{
-      display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px 0
-    }
+    .meta{ display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px 0 }
     .meta .badge{
       border:2px solid #fff;border-radius:12px;padding:2px 8px;
       font-size:.78rem;color:#fff
     }
     .poc-desc{color:#d5d5d5;font-size:.98rem;line-height:1.55;min-height:92px}
-
     .btn{
       display:inline-flex;align-items:center;gap:8px;
       margin-top:16px;padding:10px 14px;border:2px solid #fff;border-radius:10px;
@@ -144,7 +135,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Canvas del efecto Matrix -->
   <canvas id="matrix"></canvas>
@@ -154,6 +144,7 @@
       <div id="logo">
         <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
       </div>
+
       <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
       <a href="poc.html" class="nav-link active"><i class="fas fa-terminal"></i>Laboratorio</a>
       <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
@@ -301,38 +292,32 @@
       if(t) t.textContent='p1r4t3h00k@lab:~$ Sistema operativo estable. Preparado para experimentar.';
     },1800);
 
-    // ===== Canvas Matrix (ajustado: caída/nitidez como el ejemplo) =====
+    // ===== Canvas Matrix (blanco/gris) =====
     (function(){
-      const c = document.getElementById('matrix');
-      const ctx = c.getContext('2d');
-
-      const fontSize = 18;         // más alto para mejor lectura
-      const letters  = '01';
-      let columns, drops;
-
-      function resize(){
-        c.width  = window.innerWidth;
-        c.height = window.innerHeight;
-        columns  = Math.floor(c.width / fontSize);
-        drops    = Array(columns).fill(1);
-      }
-      window.addEventListener('resize', resize);
+      const c=document.getElementById('matrix');
+      const ctx=c.getContext('2d');
+      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
       resize();
+      window.addEventListener('resize',resize);
+
+      const letters = '01';
+      const fontSize = 16;
+      const columns = Math.floor(c.width / fontSize);
+      const drops = Array(columns).fill(1);
 
       function draw(){
-        // velo más sutil para estelas sin oscurecer
-        ctx.fillStyle = 'rgba(0,0,0,0.05)';   // antes 0.08
+        // velo semi-transparente para dejar estelas
+        ctx.fillStyle='rgba(0,0,0,0.08)';
         ctx.fillRect(0,0,c.width,c.height);
 
-        // dígitos más suaves (sin quemar el texto del contenido)
-        ctx.fillStyle = 'rgba(255,255,255,0.45)'; // antes 0.85
-        ctx.font = fontSize + 'px Share Tech Mono';
+        ctx.fillStyle='rgba(255,255,255,0.85)'; // blanco nítido
+        ctx.font=fontSize+'px Share Tech Mono';
 
         for(let i=0;i<drops.length;i++){
-          const ch = letters[Math.floor(Math.random()*letters.length)];
-          ctx.fillText(ch, i*fontSize, drops[i]*fontSize);
+          const text = letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-          // reinicio aleatorio al fondo
+          // reinicia en distintos puntos
           if(drops[i]*fontSize > c.height && Math.random()>0.975){
             drops[i]=0;
           }
