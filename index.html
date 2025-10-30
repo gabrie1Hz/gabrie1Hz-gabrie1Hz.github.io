@@ -112,6 +112,15 @@
     }
     .social-link:hover { background: rgba(255,255,255,0.06); box-shadow: 0 0 12px rgba(255,255,255,0.12); transform: translateY(-3px); }
 
+    .posts-title { margin-top: 30px; font-size: 1.3em; color:#d9d9d9; }
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; margin-top: 14px; }
+    .post-card { background: rgba(0,0,0,0.65); border: 2px solid #ffffff; border-radius: 10px; padding: 16px; transition:.25s; }
+    .post-card:hover { transform: translateY(-6px); border-color:#cccccc; box-shadow: 0 12px 30px rgba(255,255,255,0.06); }
+    .post-title { font-family:'Orbitron', monospace; font-size:1.05em; margin-bottom:8px; }
+    .post-meta { color:#bdbdbd; font-size:.9em; margin-bottom:10px; }
+    .post-link { display:inline-block; margin-top:6px; color:#fff; text-decoration:none; border:1px solid #fff; padding:6px 10px; border-radius:6px; }
+    .post-link:hover { background: rgba(255,255,255,0.06); }
+
     footer { margin-top: 28px; color: #bdbdbd; font-size: .9em; text-align: center; }
 
     @media (max-width: 768px) {
@@ -142,44 +151,127 @@
     <!-- Contenido -->
     <main id="content">
       <h1>p1r4t3h00k</h1>
-      <p class="subtitle">c0d3Ninja</p>
+      <p class="subtitle">@p1r4t3h00k</p>
       <p class="terminal-prompt">p1r4t3h00k@hacker:~$ Sistema inicializado. Bienvenido a las sombras.</p>
 
       <div class="description">
-        Bienvenido a mi subsuelo digital. Soy un hacker y soy lo opuesto a todo lo que te han dicho que debo ser.
-        En mi reino, todos somos iguales. Existimos sin color de piel, sin nacionalidad y sin agenda política.
-        No somos esclavos de nadie. Hackeo para expresar mi creatividad y compartir conocimiento con otros artistas como yo.
-        Para contribuir, compartir y expandir el conocimiento de toda la humanidad. Por la belleza del baud, nada más.
+        Ingeniero en Sistemas Computacionales. Aficionado a la ciberseguridad y al hacking ético.
+        Aquí documento mis aprendizajes y publico writeups de máquinas básicas de Hack The Box
+        (Starting Point y más). La idea es crecer, compartir y dejar registro técnico útil para
+        otros aprendices del oficio.
       </div>
 
-      <section class="skills-grid">
+      <!-- Áreas de enfoque -->
+      <section class="skills-grid" aria-label="Áreas de enfoque">
         <article class="skill-card">
           <div class="skill-icon"><i class="fas fa-search"></i></div>
           <h3 class="skill-title">Investigación de Vulnerabilidades</h3>
-          <p class="skill-description">Reconocimiento y análisis de vulnerabilidades en aplicaciones web, redes y sistemas.</p>
+          <p class="skill-description">Recon y análisis en aplicaciones web, redes y sistemas.</p>
         </article>
 
         <article class="skill-card">
           <div class="skill-icon"><i class="fas fa-bomb"></i></div>
           <h3 class="skill-title">Desarrollo de Exploits</h3>
-          <p class="skill-description">Creación de PoCs y payloads para demostrar impacto y apoyar la remediación.</p>
+          <p class="skill-description">PoCs y payloads para demostrar impacto y apoyar la remediación.</p>
         </article>
 
         <article class="skill-card">
           <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
           <h3 class="skill-title">Pentesting</h3>
-          <p class="skill-description">Evaluaciones de seguridad con metodologías avanzadas y recomendaciones accionables.</p>
+          <p class="skill-description">Evaluaciones de seguridad con recomendaciones accionables.</p>
         </article>
 
         <article class="skill-card">
           <div class="skill-icon"><i class="fas fa-cogs"></i></div>
           <h3 class="skill-title">Desarrollo de Herramientas</h3>
-          <p class="skill-description">Automatización y utilidades para descubrimiento de vulnerabilidades y pruebas ofensivas.</p>
+          <p class="skill-description">Automatización y utilidades para prácticas ofensivas.</p>
+        </article>
+      </section>
+
+      <!-- Writeups recientes (placeholders listos para enlazar tus páginas) -->
+      <h2 class="posts-title"><i class="fa-solid fa-folder-open"></i> Writeups recientes (Starting Point)</h2>
+      <section class="posts-grid" aria-label="Writeups recientes">
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Meow</div>
+          <div class="post-meta">Dificultad: Muy fácil • Plataforma: Linux</div>
+          <a class="post-link" href="writeups/meow.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Fawn</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/fawn.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Dancing</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/dancing.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Redeemer</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/redeemer.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Appointment</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/appointment.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Sequel</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/sequel.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Crocodile</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/crocodile.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Responder</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/responder.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Three</div>
+          <div class="post-meta">Muy fácil • Starting Point</div>
+          <a class="post-link" href="writeups/three.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Archetype</div>
+          <div class="post-meta">Muy fácil • Windows</div>
+          <a class="post-link" href="writeups/archetype.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Oopsie</div>
+          <div class="post-meta">Muy fácil • Linux</div>
+          <a class="post-link" href="writeups/oopsie.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Vaccine</div>
+          <div class="post-meta">Muy fácil • Linux</div>
+          <a class="post-link" href="writeups/vaccine.html">Leer writeup</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-title"><i class="fa-solid fa-flag"></i> Unified</div>
+          <div class="post-meta">Muy fácil • Linux</div>
+          <a class="post-link" href="writeups/unified.html">Leer writeup</a>
         </article>
       </section>
 
       <div class="social-links">
-        <a class="social-link" href="https://github.com/p1r4t3h00k" target="_blank"><i class="fab fa-github"></i> Arsenal de GitHub</a>
+        <a class="social-link" href="https://github.com/p1r4t3h00k" target="_blank" rel="noopener"><i class="fab fa-github"></i> Arsenal de GitHub</a>
         <a class="social-link" href="contact.html"><i class="fas fa-envelope"></i> Contacto seguro</a>
         <a class="social-link" href="poc.html"><i class="fas fa-trophy"></i> Descubrimientos CVE</a>
       </div>
