@@ -87,21 +87,22 @@
     label{font-size:.95rem;color:#fff}
     input,select,textarea{
       background:rgba(0,0,0,.45);color:#fff;border:2px solid #fff;border-radius:10px;padding:10px;
-      font-family:'Share Tech Mono',monospace
+      font-family:'Share Tech Mono',monospace;width:100%;
     }
     textarea{min-height:120px;resize:vertical}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media (max-width:720px){.row{grid-template-columns:1fr}}
 
     /* === Ajuste SOLO en "Pídeme una cotización" (3ra tarjeta) === */
-    .grid > section.card:nth-of-type(3) h3{ font-size:1.02rem; }
-    .grid > section.card:nth-of-type(3) label{ font-size:.90rem; }
+    .grid > section.card:nth-of-type(3){max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+    .grid > section.card:nth-of-type(3) h3{ font-size:1.0rem; }
+    .grid > section.card:nth-of-type(3) label{ font-size:.88rem; }
     .grid > section.card:nth-of-type(3) input,
     .grid > section.card:nth-of-type(3) select,
-    .grid > section.card:nth-of-type(3) textarea{ font-size:.95rem; }
+    .grid > section.card:nth-of-type(3) textarea{ font-size:.94rem; }
     @media (max-width:1200px){
-      .grid > section.card:nth-of-type(3) h3{ font-size:1.0rem; }
-      .grid > section.card:nth-of-type(3){ font-size:.96rem; }
+      .grid > section.card:nth-of-type(3) h3{ font-size:.98rem; }
+      .grid > section.card:nth-of-type(3) .row{ grid-template-columns:1fr; } /* evita desbordes */
     }
 
     /* ===== Ticker ===== */
