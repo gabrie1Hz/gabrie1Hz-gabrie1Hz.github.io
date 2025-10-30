@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>p1r4t3h00k — Writeups</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <meta name="description" content="Writeups de máquinas HackTheBox — p1r4t3h00k">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand"><a href="/">p1r4t3h00k</a></h1>
+      <nav class="nav">
+        <a href="#writeups">Writeups</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <div class="hero-left">
+        <img src="assets/avatar.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="hero-right">
+        <h2>Hola — soy <strong>p1r4t3h00k</strong></h2>
+        <p>Resolución de máquinas en HackTheBox. Aquí encontrarás writeups, guías y herramientas.</p>
+        <p><a class="cta" href="#writeups">Ver writeups</a></p>
+      </div>
+    </section>
+
+    <section id="writeups" class="card-list">
+      <h3>Writeups recientes</h3>
+      <article class="card">
+        <h4><a href="writeups/sample-machine.html">SampleMachine — Resolución (Plantilla)</a></h4>
+        <p class="meta">Fecha: 2025-10-29 • Dificultad: Medium</p>
+        <p>Breve resumen de la técnica usada: enumeración, exploit, escalado de privilegios.</p>
+      </article>
+
+      <article class="card placeholder">
+        <h4>Agrega tus writeups en la carpeta <code>writeups/</code></h4>
+        <p>Puedes crear archivos HTML o Markdown. Te dejo plantillas en el repositorio.</p>
+      </article>
+    </section>
+
+    <section id="about" class="about">
+      <h3>Sobre mí</h3>
+      <p>Sistemas, Ciberseguridad y Capture The Flag. En desarrollo: blog de writeups.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contacto</h3>
+      <p>Email: <a href="mailto:elghostelghost339@gmail.com">elghostelghost339@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/{{YOUR_HANDLE}}">{{YOUR_HANDLE}}</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> p1r4t3h00k — Hecho con ❤</small>
+    </div>
+  </footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
