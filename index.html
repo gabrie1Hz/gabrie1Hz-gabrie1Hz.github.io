@@ -19,16 +19,13 @@
     }
 
     /* === Canvas del fondo Matrix (suave) === */
-    #matrix{
-      position:fixed; inset:0; z-index:-2; background:#000;
-    }
+    #matrix{ position:fixed; inset:0; z-index:-2; background:#000; }
 
     /* Patrón de puntos muy tenue encima del Matrix */
     body::before{
       content:""; position:fixed; inset:0;
       background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 0);
-      background-size:20px 20px;
-      z-index:-1; pointer-events:none;
+      background-size:20px 20px; z-index:-1; pointer-events:none;
       animation:binaryFlow 12s linear infinite;
     }
     @keyframes binaryFlow{0%{transform:translateY(0)}100%{transform:translateY(20px)}}
@@ -43,20 +40,16 @@
     #logo{text-align:center;margin-bottom:30px}
     #logo img{width:120px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s}
     #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
-
     .nav-link{color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;border:1px solid transparent;border-radius:5px;transition:.2s;text-transform:uppercase;letter-spacing:1px;font-weight:bold}
     .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
     .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;box-shadow:0 0 10px rgba(255,255,255,.25);transform:translateX(4px)}
     .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
-
     #content{flex:1;padding:40px;background:rgba(0,0,0,.68);backdrop-filter:blur(5px)}
 
     h1{font-family:'Orbitron',monospace;font-size:4em;color:#fff;text-shadow:0 0 18px rgba(255,255,255,.45);margin-bottom:30px;animation:glow 2s ease-in-out infinite alternate}
     @keyframes glow{from{text-shadow:0 0 18px rgba(255,255,255,.45)}to{text-shadow:0 0 26px rgba(255,255,255,.75)}}
-
     .subtitle{font-size:1.5em;color:#d0d0d0;margin-bottom:40px;font-weight:300}
     .terminal-prompt{color:#f2f2f2;font-weight:bold;margin-bottom:20px}
-
     .description{font-size:1.1em;line-height:1.8;color:#fff;margin-bottom:40px;max-width:800px}
 
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:40px}
@@ -80,7 +73,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Canvas del efecto Matrix (suave) -->
   <canvas id="matrix"></canvas>
@@ -91,6 +83,7 @@
         <!-- Usando tu imagen dentro de /assets -->
         <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
       </div>
+
       <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>Inicio</a>
       <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
       <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
@@ -105,10 +98,7 @@
       <p class="terminal-prompt">p1r4t3h00k@hacker:~$ Sistema inicializado. Hack The Planet!!.</p>
 
       <div class="description">
-        Ingeniero en Sistemas Computacionales. Practico ciberseguridad y hacking ético como hobby.
-        Aquí publico writeups de máquinas básicas de Hack The Box (Starting Point: Meow, Fawn, Dancing,
-        Redeemer, Appointment, Sequel, Crocodile, Responder, Three, Archetype, Oopsie, Vaccine, Unified…),
-        además de proyectos propios y notas para aprender y mejorar.
+        Ingeniero en Sistemas Computacionales. Practico ciberseguridad y hacking ético como hobby. Aquí publico writeups de máquinas básicas de Hack The Box (Starting Point: Meow, Fawn, Dancing, Redeemer, Appointment, Sequel, Crocodile, Responder, Three, Archetype, Oopsie, Vaccine, Unified…), además de proyectos propios y notas para aprender y mejorar.
       </div>
 
       <div class="skills-grid">
@@ -116,35 +106,28 @@
           <div class="skill-icon"><i class="fas fa-code"></i></div>
           <div class="skill-title">Desarrollo Full-Stack</div>
           <div class="skill-description">
-            Diseño e implementación de aplicaciones completas con .NET, C#, JavaScript, SQL Express, PHP y Blazor.
-            Integración de bases de datos, API y front-end modernos orientados a la eficiencia y escalabilidad.
+            Diseño e implementación de aplicaciones completas con .NET, C#, JavaScript, SQL Express, PHP y Blazor. Integración de bases de datos, API y front-end modernos orientados a la eficiencia y escalabilidad.
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
           <div class="skill-title">Proyectos Personales</div>
           <div class="skill-description">
-            Sistemas propios como un gestor hospitalario en .NET/Blazor y un dashboard PHP con gráficos dinámicos
-            para el control de producción de mangos. Enfocado en optimización y visualización de datos.
+            Sistemas propios como un gestor hospitalario en .NET/Blazor y un dashboard PHP con gráficos dinámicos para el control de producción de mangos. Enfocado en optimización y visualización de datos.
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
           <div class="skill-title">Pentesting</div>
           <div class="skill-description">
-            Evaluaciones de seguridad con metodologías ofensivas y
-            recomendaciones accionables.
+            Evaluaciones de seguridad con metodologías ofensivas y recomendaciones accionables.
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-cogs"></i></div>
           <div class="skill-title">Desarrollo de Herramientas</div>
           <div class="skill-description">
-            Automatización y utilidades para acelerar el descubrimiento y la
-            explotación controlada.
+            Automatización y utilidades para acelerar el descubrimiento y la explotación controlada.
           </div>
         </div>
       </div>
@@ -184,7 +167,7 @@
       if(t) t.textContent='p1r4t3h00k@hacker:~$ Acceso concedido. Explora el submundo digital.';
     },2000);
 
-    // Rotación del ticker
+    // Rotación del ticker (contenido del <marquee>)
     const phrases=[
       'p1r4t3h00k — Ingeniero en Sistemas Computacionales',
       'Ciberseguridad & Hacking Ético como hobby',
@@ -199,47 +182,47 @@
       if(ticker) ticker.textContent=phrases[i];
     },6000);
 
-    /* ===== Efecto Matrix (idéntico al estilo que pediste) ===== */
+    // === Efecto Matrix (MISMA caída y nitidez que el laboratorio) ===
     (function(){
-      const c = document.getElementById('matrix');
-      const ctx = c.getContext('2d');
+      const c=document.getElementById('matrix');
+      const ctx=c.getContext('2d');
 
-      function resize(){
-        c.width  = window.innerWidth;
-        c.height = window.innerHeight;
-        // re-calcular columnas y gotas tras cada resize
-        columns = Math.floor(c.width / fontSize);
-        drops   = new Array(columns).fill(1);
-      }
-      window.addEventListener('resize', resize);
+      function resize(){ c.width=window.innerWidth; c.height=window.innerHeight; }
       resize();
+      window.addEventListener('resize',resize);
 
-      const letters  = '01';
-      const fontSize = 18;                 // tamaño un poco más alto
-      let columns    = Math.floor(c.width / fontSize);
-      let drops      = new Array(columns).fill(1);
+      const letters='01';
+      const fontSize=16;                 // igual que en poc.html
+      let columns = Math.floor(c.width / fontSize);
+      let drops = new Array(columns).fill(1);
 
       function draw(){
-        // velo muy tenue para dejar estelas sin opacar
-        ctx.fillStyle = 'rgba(0,0,0,0.05)'; // <- igual que el ejemplo
-        ctx.fillRect(0, 0, c.width, c.height);
+        // velo para estela (igual que poc.html)
+        ctx.fillStyle='rgba(0,0,0,0.08)';
+        ctx.fillRect(0,0,c.width,c.height);
 
-        // dígitos blancos/gris con buena nitidez
-        ctx.fillStyle = 'rgba(255,255,255,0.45)'; // <- brillo moderado
-        ctx.font = fontSize + 'px Share Tech Mono';
+        // dígitos blancos nítidos (igual que poc.html)
+        ctx.fillStyle='rgba(255,255,255,0.85)';
+        ctx.font=fontSize+'px Share Tech Mono';
 
         for(let i=0; i<drops.length; i++){
-          const ch = letters[Math.floor(Math.random()*letters.length)];
-          ctx.fillText(ch, i*fontSize, drops[i]*fontSize);
+          const text = letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-          if(drops[i]*fontSize > c.height && Math.random() > 0.975){
-            drops[i] = 0;
+          if(drops[i]*fontSize > c.height && Math.random()>0.975){
+            drops[i]=0;
           }
           drops[i]++;
         }
         requestAnimationFrame(draw);
       }
       draw();
+
+      // Recalcular columnas al redimensionar
+      window.addEventListener('resize', ()=>{
+        columns = Math.floor(c.width / fontSize);
+        drops = new Array(columns).fill(1);
+      });
     })();
   </script>
 </body>
