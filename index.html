@@ -199,47 +199,47 @@
       if(ticker) ticker.textContent=phrases[i];
     },6000);
 
-    // === Efecto Matrix (un poco más visible, sin molestar) ===
+    /* ===== Efecto Matrix (idéntico al estilo que pediste) ===== */
     (function(){
-      const c=document.getElementById('matrix');
-      const ctx=c.getContext('2d');
+      const c = document.getElementById('matrix');
+      const ctx = c.getContext('2d');
 
       function resize(){
-        c.width=window.innerWidth;
-        c.height=window.innerHeight;
+        c.width  = window.innerWidth;
+        c.height = window.innerHeight;
+        // re-calcular columnas y gotas tras cada resize
+        columns = Math.floor(c.width / fontSize);
+        drops   = new Array(columns).fill(1);
       }
-      resize(); window.addEventListener('resize',resize);
+      window.addEventListener('resize', resize);
+      resize();
 
-      const letters='01';
-      const fontSize=18; // más alto que 16
-      let columns = Math.floor(c.width / fontSize);
-      let drops = new Array(columns).fill(1);
+      const letters  = '01';
+      const fontSize = 18;                 // tamaño un poco más alto
+      let columns    = Math.floor(c.width / fontSize);
+      let drops      = new Array(columns).fill(1);
 
       function draw(){
-        // velo tenue (ligeramente más claro)
-        ctx.fillStyle='rgba(0,0,0,0.05)'; // antes 0.06
-        ctx.fillRect(0,0,c.width,c.height);
+        // velo muy tenue para dejar estelas sin opacar
+        ctx.fillStyle = 'rgba(0,0,0,0.05)'; // <- igual que el ejemplo
+        ctx.fillRect(0, 0, c.width, c.height);
 
-        // dígitos un poco más brillantes
-        ctx.fillStyle='rgba(255,255,255,0.45)'; // antes 0.35
-        ctx.font=fontSize+'px Share Tech Mono';
+        // dígitos blancos/gris con buena nitidez
+        ctx.fillStyle = 'rgba(255,255,255,0.45)'; // <- brillo moderado
+        ctx.font = fontSize + 'px Share Tech Mono';
 
         for(let i=0; i<drops.length; i++){
-          const text = letters[Math.floor(Math.random()*letters.length)];
-          ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+          const ch = letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(ch, i*fontSize, drops[i]*fontSize);
 
-          if(drops[i]*fontSize > c.height && Math.random()>0.975){ drops[i]=0; }
+          if(drops[i]*fontSize > c.height && Math.random() > 0.975){
+            drops[i] = 0;
+          }
           drops[i]++;
         }
         requestAnimationFrame(draw);
       }
       draw();
-
-      // Recalcular columnas al redimensionar
-      window.addEventListener('resize', ()=>{
-        columns = Math.floor(c.width / fontSize);
-        drops = new Array(columns).fill(1);
-      });
     })();
   </script>
 </body>
