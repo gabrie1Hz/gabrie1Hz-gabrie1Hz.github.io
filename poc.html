@@ -56,7 +56,25 @@
     .title{font-family:'Orbitron',monospace;font-size:1.3em;color:#fff;margin-bottom:10px;text-align:center}
     .text{color:#ccc;line-height:1.6;text-align:center}
 
-    footer{margin-top:40px;color:#bdbdbd;font-size:.9em;text-align:center}
+    .ticker-container{
+      margin-top:50px;
+      border-top:1px solid rgba(255,255,255,.3);
+      padding-top:20px;
+      text-align:center;
+      overflow:hidden;
+    }
+    .ticker{
+      font-size:1.1em;
+      color:#bdbdbd;
+      text-shadow:0 0 10px rgba(255,255,255,0.3);
+      animation:scrollText 15s linear infinite;
+      white-space:nowrap;
+      display:inline-block;
+    }
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
 
     @media (max-width:768px){
       #container{flex-direction:column}
@@ -94,41 +112,31 @@
         <div class="card">
           <div class="icon"><i class="fas fa-server"></i></div>
           <h3 class="title">Infraestructura</h3>
-          <p class="text">
-            Configuración y despliegue de entornos locales y virtualizados (VMWare, VirtualBox, Hyper-V).
-            Automatización de laboratorios y servidores de práctica en redes segmentadas.
-          </p>
+          <p class="text">Configuración y despliegue de entornos locales y virtualizados (VMWare, VirtualBox, Hyper-V). Automatización de laboratorios y servidores de práctica en redes segmentadas.</p>
         </div>
 
         <div class="card">
           <div class="icon"><i class="fas fa-terminal"></i></div>
           <h3 class="title">Automatización y Scripts</h3>
-          <p class="text">
-            Creación de scripts en Bash, PowerShell y Python para tareas de mantenimiento,
-            análisis de logs, escaneo de red y procesos de seguridad.
-          </p>
+          <p class="text">Creación de scripts en Bash, PowerShell y Python para tareas de mantenimiento, análisis de logs, escaneo de red y procesos de seguridad.</p>
         </div>
 
         <div class="card">
           <div class="icon"><i class="fas fa-database"></i></div>
           <h3 class="title">Bases de Datos</h3>
-          <p class="text">
-            Implementación y gestión de SQL Server Express y MySQL en entornos híbridos.
-            Conexión de APIs y backends para visualización y análisis de datos.
-          </p>
+          <p class="text">Implementación y gestión de SQL Server Express y MySQL en entornos híbridos. Conexión de APIs y backends para visualización y análisis de datos.</p>
         </div>
 
         <div class="card">
           <div class="icon"><i class="fas fa-network-wired"></i></div>
           <h3 class="title">Redes y Seguridad</h3>
-          <p class="text">
-            Configuración de firewalls, segmentación VLAN y prácticas de pentesting controlado.
-            Simulación de entornos corporativos y ejercicios de hardening.
-          </p>
+          <p class="text">Configuración de firewalls, segmentación VLAN y prácticas de pentesting controlado. Simulación de entornos corporativos y ejercicios de hardening.</p>
         </div>
       </section>
 
-      <footer>© 2025 Gabriel • p1r4t3h00k • “Seguridad desde las sombras”</footer>
+      <div class="ticker-container">
+        <div id="ticker" class="ticker">p1r4t3h00k — Seguridad desde las Sombras</div>
+      </div>
     </div>
   </div>
 
@@ -137,6 +145,20 @@
       const t=document.querySelector('.terminal-prompt');
       if(t) t.textContent='p1r4t3h00k@lab:~$ Sistema operativo estable. Preparado para experimentar.';
     },2000);
+
+    const frases=[
+      'p1r4t3h00k — Ingeniería, Seguridad y Conocimiento',
+      'Seguridad desde las Sombras • Ciberaprendizaje constante',
+      'Documentando cada fallo, cada mejora, cada lección',
+      'Automatización, desarrollo y ética hacker en acción',
+      'Aprende, crea, rompe... y vuelve a construir mejor'
+    ];
+    let i=0;
+    const ticker=document.getElementById('ticker');
+    setInterval(()=>{
+      i=(i+1)%frases.length;
+      ticker.textContent=frases[i];
+    },6000);
   </script>
 </body>
 </html>
