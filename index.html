@@ -13,7 +13,7 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{
       background:linear-gradient(45deg,#000,#0a0a0a,#111);
-      color:#fff;font-family:'Share Tech Mono',monospace;min-height:100vh;
+      color:#fff;font-family:'Share Tech Mono',monospace;min-height:100vh
     }
     body::before{
       content:"";position:fixed;inset:0;
@@ -60,27 +60,6 @@
     .social-link{color:#fff;text-decoration:none;padding:12px 25px;border:2px solid #fff;border-radius:5px;transition:.3s;background:rgba(0,0,0,.8);font-weight:bold}
     .social-link:hover{background:rgba(255,255,255,.1);box-shadow:0 0 15px rgba(255,255,255,.5);transform:translateY(-3px)}
 
-    .ticker-container {
-      margin-top: 60px;
-      border-top: 1px solid rgba(255,255,255,.2);
-      overflow: hidden;
-      position: relative;
-      height: 30px;
-    }
-    .ticker {
-      display: inline-block;
-      white-space: nowrap;
-      position: absolute;
-      animation: tickerMove 20s linear infinite;
-      font-size: 1.1em;
-      color: #ccc;
-      text-shadow: 0 0 10px rgba(255,255,255,.3);
-    }
-    @keyframes tickerMove {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
     @media (max-width:768px){
       #container{flex-direction:column}
       #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
@@ -97,7 +76,7 @@
         <img src="gotr00t_wallpaper.png" alt="p1r4t3h00k logo">
       </div>
       <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>Inicio</a>
-      <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
+      <a href="poc.html" class="nav-link"><i class="fas fa-bug"></i>PoC</a>
       <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
       <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guías</a>
       <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
@@ -111,27 +90,95 @@
 
       <div class="description">
         Ingeniero en Sistemas Computacionales. Practico ciberseguridad y hacking ético como hobby.
+        Aquí publico writeups de máquinas básicas de Hack The Box (Starting Point: Meow, Fawn, Dancing,
+        Redeemer, Appointment, Sequel, Crocodile, Responder, Three, Archetype, Oopsie, Vaccine, Unified…),
+        además de proyectos propios y notas para aprender y mejorar.
       </div>
 
-      <div class="social-links">
-        <a href="projects.html" class="social-link"><i class="fas fa-code-branch"></i> Proyectos</a>
-        <a href="contact.html" class="social-link"><i class="fas fa-envelope"></i> Contacto seguro</a>
-        <a href="poc.html" class="social-link"><i class="fas fa-trophy"></i> Descubrimientos / PoC</a>
-      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <div class="skill-title">Desarrollo Full-Stack</div>
+          <div class="skill-description">
+            Diseño e implementación de aplicaciones completas con .NET, C#, JavaScript, SQL Express, PHP y Blazor.
+            Integración de bases de datos, API y front-end modernos orientados a la eficiencia y escalabilidad.
+          </div>
+        </div>
 
-      <div class="ticker-container">
-        <div id="ticker" class="ticker">
-          p1r4t3h00k — Ingeniería | Seguridad | Hacking Ético | Desarrollo | Aprendizaje continuo
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="skill-title">Proyectos Personales</div>
+          <div class="skill-description">
+            Sistemas propios como un gestor hospitalario en .NET/Blazor y un dashboard PHP con gráficos dinámicos
+            para el control de producción de mangos. Enfocado en optimización y visualización de datos.
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="skill-title">Pentesting</div>
+          <div class="skill-description">
+            Evaluaciones de seguridad con metodologías ofensivas y
+            recomendaciones accionables.
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+          <div class="skill-title">Desarrollo de Herramientas</div>
+          <div class="skill-description">
+            Automatización y utilidades para acelerar el descubrimiento y la
+            explotación controlada.
+          </div>
         </div>
       </div>
+
+      <br>
+      <div class="social-links">
+        <a href="https://github.com/p1r4t3h00k" target="_blank" rel="noopener" class="social-link">
+          <i class="fab fa-github"></i> Arsenal de GitHub
+        </a>
+        <a href="contact.html" class="social-link">
+          <i class="fas fa-envelope"></i> Contacto seguro
+        </a>
+        <a href="poc.html" class="social-link">
+          <i class="fas fa-trophy"></i> Descubrimientos / PoC
+        </a>
+      </div>
+
+      <br><br><br>
+      <h3>
+        <marquee id="ticker" behavior="scroll" direction="left" scrollamount="6">
+          p1r4t3h00k — Ingeniero en Sistemas • Ciberseguridad & Hacking Ético • Writeups HTB (Starting Point)
+        </marquee>
+      </h3>
     </div>
   </div>
 
   <script>
+    document.querySelectorAll('.skill-card').forEach(card=>{
+      card.addEventListener('mouseenter',()=>card.style.borderColor='#cccccc');
+      card.addEventListener('mouseleave',()=>card.style.borderColor='#ffffff');
+    });
+
     setTimeout(()=>{
       const t=document.querySelector('.terminal-prompt');
       if(t) t.textContent='p1r4t3h00k@hacker:~$ Acceso concedido. Explora el submundo digital.';
     },2000);
+
+    const phrases=[
+      'p1r4t3h00k — Ingeniero en Sistemas Computacionales',
+      'Ciberseguridad & Hacking Ético como hobby',
+      'Writeups de Hack The Box: Meow, Fawn, Dancing, Redeemer, Appointment…',
+      'Aprendiendo, documentando y compartiendo conocimiento',
+      'Starting Point (Tier 0 a Tier 3) — paso a paso y sin humo'
+    ];
+    let i=0;
+    const ticker=document.getElementById('ticker');
+    setInterval(()=>{
+      i=(i+1)%phrases.length;
+      if(ticker) ticker.textContent=phrases[i];
+    },6000);
   </script>
 </body>
 </html>
