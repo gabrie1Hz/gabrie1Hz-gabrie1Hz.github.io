@@ -199,7 +199,7 @@
       if(ticker) ticker.textContent=phrases[i];
     },6000);
 
-    // === Efecto Matrix (blanco/gris desvanecido) ===
+    // === Efecto Matrix (un poco más visible, sin molestar) ===
     (function(){
       const c=document.getElementById('matrix');
       const ctx=c.getContext('2d');
@@ -211,23 +211,23 @@
       resize(); window.addEventListener('resize',resize);
 
       const letters='01';
-      const fontSize=16;
+      const fontSize=18; // más alto que 16
       let columns = Math.floor(c.width / fontSize);
       let drops = new Array(columns).fill(1);
 
       function draw(){
-        // velo muy tenue para estelas
-        ctx.fillStyle='rgba(0,0,0,0.06)';
+        // velo tenue (ligeramente más claro)
+        ctx.fillStyle='rgba(0,0,0,0.05)'; // antes 0.06
         ctx.fillRect(0,0,c.width,c.height);
 
-        ctx.fillStyle='rgba(255,255,255,0.35)'; // dígitos suaves
+        // dígitos un poco más brillantes
+        ctx.fillStyle='rgba(255,255,255,0.45)'; // antes 0.35
         ctx.font=fontSize+'px Share Tech Mono';
 
         for(let i=0; i<drops.length; i++){
           const text = letters[Math.floor(Math.random()*letters.length)];
           ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-          // reinicio aleatorio
           if(drops[i]*fontSize > c.height && Math.random()>0.975){ drops[i]=0; }
           drops[i]++;
         }
