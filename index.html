@@ -15,7 +15,6 @@
       background:linear-gradient(45deg,#000,#0a0a0a,#111);
       color:#fff;font-family:'Share Tech Mono',monospace;min-height:100vh
     }
-    /* Fondo de puntos animado */
     body::before{
       content:"";position:fixed;inset:0;
       background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.15) 1px,transparent 0);
@@ -97,27 +96,27 @@
       </div>
 
       <div class="skills-grid">
-        <!-- Sustitución 1: Proyectos .NET/Blazor -->
+        <!-- NUEVO 1: Desarrollo Full-Stack -->
         <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-hospital"></i></div>
-          <div class="skill-title">Sistema Hospitalario (.NET / Blazor)</div>
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <div class="skill-title">Desarrollo Full-Stack</div>
           <div class="skill-description">
-            Gestión clínica desarrollada con C#, .NET, Blazor, JS y SQL Server Express:
-            módulos de pacientes, citas, personal y reportes.
+            Diseño e implementación de aplicaciones completas con .NET, C#, JavaScript, SQL Express, PHP y Blazor.
+            Integración de bases de datos, API y front-end modernos orientados a la eficiencia y escalabilidad.
           </div>
         </div>
 
-        <!-- Sustitución 2: Dashboard PHP -->
+        <!-- NUEVO 2: Proyectos Personales -->
         <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-          <div class="skill-title">Dashboard de Producción (PHP)</div>
+          <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="skill-title">Proyectos Personales</div>
           <div class="skill-description">
-            Panel con gráficos dinámicos para administrar la producción de mangos:
-            KPIs, métricas en tiempo real y reportes exportables.
+            Sistemas propios como un gestor hospitalario en .NET/Blazor y un dashboard PHP con gráficos dinámicos
+            para el control de producción de mangos. Enfocado en optimización y visualización de datos.
           </div>
         </div>
 
-        <!-- Secciones que sí mantienes -->
+        <!-- Mantienes -->
         <div class="skill-card">
           <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
           <div class="skill-title">Pentesting</div>
@@ -151,7 +150,6 @@
       </div>
 
       <br><br><br>
-      <!-- Ticker con id para rotación -->
       <h3>
         <marquee id="ticker" behavior="scroll" direction="left" scrollamount="6">
           p1r4t3h00k — Ingeniero en Sistemas • Ciberseguridad & Hacking Ético • Writeups HTB (Starting Point)
@@ -161,19 +159,16 @@
   </div>
 
   <script>
-    // Hover en tarjetas
     document.querySelectorAll('.skill-card').forEach(card=>{
       card.addEventListener('mouseenter',()=>card.style.borderColor='#cccccc');
       card.addEventListener('mouseleave',()=>card.style.borderColor='#ffffff');
     });
 
-    // Mensaje de inicio simulado
     setTimeout(()=>{
       const t=document.querySelector('.terminal-prompt');
       if(t) t.textContent='p1r4t3h00k@hacker:~$ Acceso concedido. Explora el submundo digital.';
     },2000);
 
-    // Carrusel de frases para el marquee (ticker)
     const phrases=[
       'p1r4t3h00k — Ingeniero en Sistemas Computacionales',
       'Ciberseguridad & Hacking Ético como hobby',
@@ -186,7 +181,7 @@
     setInterval(()=>{
       i=(i+1)%phrases.length;
       if(ticker) ticker.textContent=phrases[i];
-    },6000); // cambia cada 6 s
+    },6000);
   </script>
 </body>
 </html>
