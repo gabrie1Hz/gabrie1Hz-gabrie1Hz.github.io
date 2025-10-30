@@ -1,78 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p1r4t3h00k - Security from the Shadows</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-* {margin: 0; padding: 0; box-sizing: border-box;}
-body {background: linear-gradient(45deg, #000000, #0a0a0a, #111111); color: #ffffff; font-family: 'Share Tech Mono', monospace; min-height: 100vh;}
-body::before {content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px; animation: binaryFlow 10s linear infinite; z-index: -1;}
-@keyframes binaryFlow {0% { transform: translateY(0);} 100% { transform: translateY(20px);}}
-#container {display: flex; min-height: 100vh;}
-#sidebar {width: 220px; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-right: 2px solid #ffffff; padding: 20px; display: flex; flex-direction: column; box-shadow: 0 0 20px rgba(255,255,255,0.12);}
-#logo {text-align: center; margin-bottom: 20px;}
-#logo img {width: 120px; height: auto; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 15px rgba(255,255,255,0.12); transition: all 0.3s ease;}
-#logo img:hover {transform: scale(1.05); box-shadow: 0 0 25px rgba(255,255,255,0.22);}
-.nav-link {color: #ffffff; text-decoration: none; padding: 12px; margin: 6px 0; display: block; border: 1px solid transparent; border-radius: 5px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;}
-.nav-link:hover {background: rgba(255,255,255,0.06); border-color: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.08); transform: translateX(6px);}
-.nav-link.active {background: rgba(255,255,255,0.12); border-color: #ffffff; color: #ffffff;}
-.nav-link i {color: #ffffff; margin-right: 8px; width: 16px; text-align: center;}
-#content {flex: 1; padding: 36px; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);}
-h1 {font-family: 'Orbitron', monospace; font-size: 3.2em; color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.5); margin-bottom: 12px; animation: glow 2s ease-in-out infinite alternate;}
-@keyframes glow {from { text-shadow: 0 0 20px rgba(255,255,255,0.5);} to { text-shadow: 0 0 30px rgba(255,255,255,0.8);}}
-.subtitle {font-size: 1.2em; color: #cccccc; margin-bottom: 14px; font-weight: 300;}
-.terminal-prompt {color: #ffffff; font-weight: bold; margin-bottom: 18px;}
-.description {font-size: 1.02em; line-height: 1.7; color: #e6e6e6; margin-bottom: 28px; max-width: 900px;}
-.skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px;}
-.skill-card {background: rgba(0,0,0,0.65); border: 2px solid #ffffff; border-radius: 10px; padding: 18px; transition: all 0.25s ease; position: relative; overflow: hidden;}
-.skill-card::before {content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); transition: left 0.5s ease;}
-.skill-card:hover::before {left: 100%;}
-.skill-card:hover {transform: translateY(-6px); box-shadow: 0 12px 30px rgba(255,255,255,0.06); border-color: #cccccc;}
-.skill-icon {font-size: 2.2em; margin-bottom: 10px; text-align: center; color: #ffffff;}
-.skill-title {font-family: 'Orbitron', monospace; font-size: 1.1em; color: #ffffff; margin-bottom: 8px; text-align: center;}
-.skill-description {color: #cccccc; line-height: 1.5; text-align: center;}
-.social-links {margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap;}
-.social-link {color: #ffffff; text-decoration: none; padding: 10px 18px; border: 2px solid #ffffff; border-radius: 6px; transition: all 0.2s ease; background: rgba(0,0,0,0.6); font-weight:bold;}
-.social-link:hover {background: rgba(255,255,255,0.06); box-shadow: 0 0 12px rgba(255,255,255,0.12); transform: translateY(-3px);}
-footer{margin-top:28px;color:#bdbdbd;font-size:0.9em;text-align:center}
-@media (max-width: 768px) {#container {flex-direction: column;} #sidebar {width:100%; border-right:none; border-bottom:2px solid #ffffff;} h1{font-size:2em;} .skills-grid{grid-template-columns:1fr}}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>p1r4t3h00k - Contacto</title>
+
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      background:#000;color:#fff;font-family:'Share Tech Mono',monospace;
+      min-height:100vh;position:relative;overflow-x:hidden;
+    }
+
+    /* ===== Fondo Matrix (idéntico al resto) ===== */
+    #matrix{position:fixed;inset:0;z-index:-2;background:#000}
+    body::before{
+      content:"";position:fixed;inset:0;
+      background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
+      background-size:20px 20px;z-index:-1;pointer-events:none;
+    }
+
+    /* ===== Layout ===== */
+    #container{display:flex;min-height:100vh}
+    #sidebar{
+      width:200px;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);
+      border-right:2px solid #fff;padding:20px;display:flex;flex-direction:column;
+      box-shadow:0 0 20px rgba(255,255,255,.25)
+    }
+    #logo{text-align:center;margin-bottom:20px}
+    #logo img{
+      width:120px;border-radius:50%;border:2px solid #fff;
+      box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
+    }
+    #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
+    .nav-link{
+      color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
+      border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
+      text-transform:uppercase;letter-spacing:1px;font-weight:bold
+    }
+    .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
+    .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
+    .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
+    #content{flex:1;padding:40px}
+
+    h1{
+      font-family:'Orbitron',monospace;font-size:3.0em;color:#fff;
+      text-shadow:0 0 18px rgba(255,255,255,.45);margin-bottom:8px
+    }
+    .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:12px}
+    .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:18px}
+    .description{
+      font-size:1.05em;line-height:1.8;color:#e6e6e6;
+      margin-bottom:20px;max-width:980px
+    }
+
+    /* ===== Tarjetas ===== */
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-bottom:22px
+    }
+    .card{
+      background:rgba(0,0,0,.65);border:2px solid #fff;border-radius:16px;padding:18px;
+      box-shadow:0 0 20px rgba(255,255,255,.15);transition:.25s;position:relative
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(255,255,255,.25);border-color:#e6e6e6}
+    .card h3{font-family:'Orbitron',monospace;font-size:1.15rem;margin-bottom:8px}
+    .line{margin:10px 0;border-top:1px solid rgba(255,255,255,.25)}
+
+    .badge{border:2px solid #fff;border-radius:12px;padding:2px 8px;font-size:.78rem;margin-right:6px}
+    .pill{
+      position:absolute;top:10px;right:10px;font-size:.72rem;letter-spacing:.6px;
+      border:2px solid #fff;border-radius:999px;padding:3px 10px;color:#111;background:#fff;font-weight:bold
+    }
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:2px solid #fff;border-radius:10px;
+      color:#fff;text-decoration:none;font-weight:bold;transition:.2s}
+    .btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
+    .btn i{width:16px;text-align:center}
+
+    /* ===== Form ===== */
+    form{display:grid;gap:12px;margin-top:6px}
+    label{font-size:.95rem;color:#fff}
+    input,select,textarea{
+      background:rgba(0,0,0,.45);color:#fff;border:2px solid #fff;border-radius:10px;padding:10px;
+      font-family:'Share Tech Mono',monospace
+    }
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:720px){.row{grid-template-columns:1fr}}
+
+    /* ===== Ticker ===== */
+    .ticker-container{margin-top:24px;border-top:1px solid rgba(255,255,255,.25);padding-top:12px;text-align:center;overflow:hidden}
+    .ticker{font-size:1.0rem;color:#cfcfcf;text-shadow:0 0 10px rgba(255,255,255,.25);white-space:nowrap;display:inline-block;animation:scrollText 18s linear infinite}
+    @keyframes scrollText {0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+    footer{margin-top:28px;color:#bdbdbd;font-size:.9em;text-align:center}
+
+    @media (max-width:768px){
+      #container{flex-direction:column}
+      #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
+      h1{font-size:2.4em}
+    }
+  </style>
 </head>
 <body>
-    <div id="container">
-        <div id="sidebar">
-            <div id="logo">
-                <img src="gotr00t_wallpaper.png" alt="logo">
-            </div>
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-            <a href="poc.html" class="nav-link"><i class="fas fa-bug"></i>PoC</a>
-            <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Projects</a>
-            <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guides</a>
-            <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
-            <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i>Contact</a>
-        </div>
-        <div id="content">
-<h1>Contact</h1>
-<p class='subtitle'>c0d3Ninja</p>
-<p class='terminal-prompt'>p1r4t3h00k@hacker:~$ Secure channels established.</p>
+  <!-- Canvas del efecto Matrix -->
+  <canvas id="matrix"></canvas>
 
-<div class='description'>
-<div class='description'><p>Contact me at: <a href='mailto:elghostelghost339@gmail.com' style='color:#fff'>elghostelghost339@gmail.com</a></p></div>
-</div>
-            <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
-        </div>
+  <div id="container">
+    <div id="sidebar">
+      <div id="logo">
+        <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
+      </div>
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
+      <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
+      <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
+      <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guías</a>
+      <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
+      <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i>Contacto</a>
     </div>
-    <script>
-        // hover border effect
-        document.querySelectorAll('.skill-card').forEach(card => {
-            card.addEventListener('mouseenter', () => { card.style.borderColor = '#cccccc'; });
-            card.addEventListener('mouseleave', () => { card.style.borderColor = '#ffffff'; });
+
+    <div id="content">
+      <h1>Contacto</h1>
+      <p class="subtitle">@p1r4t3h00k</p>
+      <p class="terminal-prompt">p1r4t3h00k@contact:~$ Canales seguros listos. ¡Hablemos!</p>
+
+      <div class="description">
+        ¿Buscas **auditorías**, **hardening**, **PoC ofensivas** o **desarrollo** de herramientas/automatizaciones?  
+        Escríbeme. Respondo normalmente en **24–48 h** (UTC−06).
+      </div>
+
+      <div class="grid">
+        <!-- Métodos directos -->
+        <section class="card">
+          <span class="pill">Directo</span>
+          <h3>Canales</h3>
+          <div class="line"></div>
+          <p style="margin:6px 0 10px">Correo principal:</p>
+          <p style="font-size:1.05rem;margin-bottom:10px">
+            <a id="mailLink" href="mailto:hernandezgabriel742@gmail.com" class="btn">
+              <i class="fas fa-envelope"></i> hernandezgabriel742@gmail.com
+            </a>
+            <button id="copyMail" class="btn" type="button" style="margin-left:8px">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </p>
+          <div class="line"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://github.com/p1r4t3h00k" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            <a class="btn" href="https://www.youtube.com/@p1r4t3h00k" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+          <p style="margin-top:12px;color:#cfcfcf;font-size:.9rem">
+            *Para pruebas con datos sensibles, solicita canal cifrado.*
+          </p>
+        </section>
+
+        <!-- Servicios -->
+        <section class="card">
+          <span class="pill">Servicios</span>
+          <h3>Qué puedo hacer por ti</h3>
+          <div class="line"></div>
+          <ul style="line-height:1.8;color:#e6e6e6;margin-left:16px">
+            <li><span class="badge">Pentesting</span> Caja negra/gris, **interna** y **perimetral**.</li>
+            <li><span class="badge">Web/App</span> Pruebas OWASP, PortSwigger labs & reporting.</li>
+            <li><span class="badge">Red</span> Enumeración, hardening, segmentación y visibilidad.</li>
+            <li><span class="badge">Forense light</span> Triaging, timelines y contención inicial.</li>
+            <li><span class="badge">Automations</span> Scripts y utilidades para *recon/exploit* controlado.</li>
+            <li><span class="badge">Mentorías</span> Starting Point (HTB) y laboratorios guiados.</li>
+          </ul>
+          <div class="line"></div>
+          <p style="color:#cfcfcf;font-size:.95rem">
+            <strong>Modalidad:</strong> Freelance o por proyecto • <strong>Alcance:</strong> entregables claros y reproducibles.
+          </p>
+        </section>
+
+        <!-- Formulario (mailto) -->
+        <section class="card">
+          <span class="pill">Propuesta</span>
+          <h3>Pídeme una cotización</h3>
+          <div class="line"></div>
+          <form id="contactForm">
+            <div class="row">
+              <div>
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" required placeholder="Tu nombre o empresa">
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="tu@email.com">
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="service">Tipo de proyecto</label>
+                <select id="service" name="service" required>
+                  <option value="Pentesting">Pentesting (web/red)</option>
+                  <option value="Auditoria">Auditoría & Hardening</option>
+                  <option value="Automations">Automatización / Herramientas</option>
+                  <option value="Mentoria">Mentoría / Capacitación</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              <div>
+                <label for="timeline">Urgencia</label>
+                <select id="timeline" name="timeline">
+                  <option value="Normal">Normal (2–4 semanas)</option>
+                  <option value="Alta">Alta (<= 7 días)</option>
+                  <option value="Baja">Baja (1–2 meses)</option>
+                </select>
+              </div>
+            </div>
+
+            <label for="msg">Mensaje</label>
+            <textarea id="msg" name="msg" placeholder="Cuéntame el alcance, objetivos, y si hay ventanas de mantenimiento."></textarea>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+              <button class="btn" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+              <button class="btn" type="reset"><i class="fas fa-eraser"></i> Limpiar</button>
+            </div>
+          </form>
+          <p style="margin-top:10px;color:#cfcfcf;font-size:.9rem">
+            Al enviar, se abrirá tu cliente de correo con los datos prellenados (no se guarda nada en el sitio).
+          </p>
+        </section>
+
+        <!-- Notas / SLA -->
+        <section class="card">
+          <span class="pill">Notas</span>
+          <h3>Política & disponibilidad</h3>
+          <div class="line"></div>
+          <ul style="line-height:1.8;color:#e6e6e6;margin-left:16px">
+            <li><strong>Uso ético:</strong> sólo entornos con permiso escrito (NDA disponible).</li>
+            <li><strong>Disponibilidad:</strong> slots limitados por mes; agenda anticipada.</li>
+            <li><strong>Reporte:</strong> evidencia paso a paso, PoC reproducibles y recomendaciones.</li>
+            <li><strong>Comunicación:</strong> español/inglés; canal seguro bajo solicitud.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Ticker -->
+      <div class="ticker-container">
+        <div id="ticker" class="ticker">p1r4t3h00k — Seguridad desde las Sombras • Pentesting • Auditorías • Automations</div>
+      </div>
+
+      <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
+    </div>
+  </div>
+
+  <script>
+    // Mensaje de terminal
+    setTimeout(()=>{
+      const t=document.querySelector('.terminal-prompt');
+      if(t) t.textContent='p1r4t3h00k@contact:~$ Esperando tu señal…';
+    },1000);
+
+    // ===== Canvas Matrix (igual que index/poc) =====
+    (function(){
+      const c=document.getElementById('matrix');
+      const ctx=c.getContext('2d');
+      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
+      resize(); window.addEventListener('resize',resize);
+
+      const letters='01', fontSize=16, columns=Math.floor(c.width/fontSize);
+      const drops=Array(columns).fill(1);
+
+      function draw(){
+        ctx.fillStyle='rgba(0,0,0,0.08)'; ctx.fillRect(0,0,c.width,c.height);
+        ctx.fillStyle='rgba(255,255,255,0.85)'; ctx.font=fontSize+'px Share Tech Mono';
+        for(let i=0;i<drops.length;i++){
+          const t=letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(t,i*fontSize,drops[i]*fontSize);
+          if(drops[i]*fontSize>c.height && Math.random()>0.975) drops[i]=0;
+          drops[i]++;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // Copiar correo al portapapeles
+    (function(){
+      const btn=document.getElementById('copyMail');
+      const link=document.getElementById('mailLink');
+      btn.addEventListener('click',()=>{
+        const mail=link.textContent.trim();
+        navigator.clipboard.writeText(mail).then(()=>{
+          btn.innerHTML='<i class="fas fa-check"></i> Copiado';
+          setTimeout(()=>btn.innerHTML='<i class="fas fa-copy"></i> Copiar',1500);
         });
-        // simulate init
-        setTimeout(()=>{ const t = document.querySelector('.terminal-prompt'); if(t) t.textContent = 'p1r4t3h00k@hacker:~$ Access granted. Explore the digital underground.'; }, 900);
-    </script>
+      });
+    })();
+
+    // Formulario -> mailto con asunto y cuerpo
+    (function(){
+      const form=document.getElementById('contactForm');
+      form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const to='hernandezgabriel742@gmail.com';
+        const name=document.getElementById('name').value.trim();
+        const from=document.getElementById('email').value.trim();
+        const service=document.getElementById('service').value;
+        const timeline=document.getElementById('timeline').value;
+        const msg=(document.getElementById('msg').value||'').trim();
+
+        // Validación simple
+        if(!name || !from){ alert('Por favor completa nombre y email.'); return; }
+
+        const subject=encodeURIComponent(`[Contacto] ${service} — ${name}`);
+        const body=encodeURIComponent(
+`Hola Gabriel,
+
+Soy ${name} (${from}).
+Estoy interesado en: ${service}
+Urgencia: ${timeline}
+
+Detalles:
+${msg}
+
+— Enviado desde p1r4t3h00k (contact.html)`
+        );
+        window.location.href=`mailto:${to}?subject=${subject}&body=${body}`;
+      });
+    })();
+
+    // Ticker dinámico
+    (function(){
+      const phrases=[
+        'p1r4t3h00k — Pentesting y Auditorías',
+        'Freelance por proyecto • Entregables reproducibles',
+        'Canales seguros bajo solicitud'
+      ];
+      let i=0; const ticker=document.getElementById('ticker');
+      setInterval(()=>{ i=(i+1)%phrases.length; if(ticker) ticker.textContent=phrases[i]; },7000);
+    })();
+  </script>
 </body>
 </html>
