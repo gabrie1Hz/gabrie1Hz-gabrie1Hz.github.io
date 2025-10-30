@@ -164,22 +164,8 @@
 
       <!-- ===== Grid de PoC / Proyectos ===== -->
       <section class="poc-grid">
-        <!-- 1 -->
-        <article class="poc-card">
-          <span class="pill">PROYECTO</span>
-          <span class="poc-title">Django — Administración de Biblioteca</span>
-          <div class="meta">
-            <span class="badge">Django</span>
-            <span class="badge">CRUD</span>
-            <span class="badge">Web</span>
-          </div>
-          <p class="poc-desc">Aplicación de gestión bibliotecaria con Django: préstamos, catálogos y usuarios, orientada a prácticas de backend limpio.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Django-Administracion-Biblioteca" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
-          </a>
-        </article>
 
-        <!-- 2 -->
+        <!-- WRITEUPS -->
         <article class="poc-card">
           <span class="pill">WRITEUPS</span>
           <span class="poc-title">Write-Up Collections</span>
@@ -193,35 +179,7 @@
           </a>
         </article>
 
-        <!-- 3 -->
-        <article class="poc-card">
-          <span class="pill">PROYECTO</span>
-          <span class="poc-title">Módulo de Hospitalización</span>
-          <div class="meta">
-            <span class="badge">.NET/Blazor</span>
-            <span class="badge">SQL</span>
-          </div>
-          <p class="poc-desc">Módulo clínico para gestión de hospitalizaciones con énfasis en flujos, formularios y persistencia de datos.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Modulo-Hospitalizacion" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
-          </a>
-        </article>
-
-        <!-- 4 -->
-        <article class="poc-card">
-          <span class="pill">PROYECTO</span>
-          <span class="poc-title">Gráficos Dinámicos</span>
-          <div class="meta">
-            <span class="badge">PHP</span>
-            <span class="badge">Dashboards</span>
-          </div>
-          <p class="poc-desc">Paneles con visualizaciones dinámicas para seguimiento de métricas y reportes operativos.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Graficos-Dinamicos" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
-          </a>
-        </article>
-
-        <!-- 5 -->
+        <!-- NIP BRUTEFORCE AUDIT -->
         <article class="poc-card">
           <span class="pill">HERRAMIENTA</span>
           <span class="poc-title">NIP Bruteforce Audit</span>
@@ -235,7 +193,7 @@
           </a>
         </article>
 
-        <!-- 6 -->
+        <!-- GOOGLE DORKING TOOL -->
         <article class="poc-card">
           <span class="pill">HERRAMIENTA</span>
           <span class="poc-title">Google Dorking Tool</span>
@@ -249,7 +207,7 @@
           </a>
         </article>
 
-        <!-- 7 -->
+        <!-- BASH + NMAP TOOLKIT -->
         <article class="poc-card">
           <span class="pill">HERRAMIENTA</span>
           <span class="poc-title">Bash + Nmap Toolkit</span>
@@ -263,7 +221,7 @@
           </a>
         </article>
 
-        <!-- 8 -->
+        <!-- SNIFFING FTP & TELNET -->
         <article class="poc-card">
           <span class="pill">HERRAMIENTA</span>
           <span class="poc-title">Sniffing FTP & Telnet</span>
@@ -276,6 +234,7 @@
             <i class="fas fa-code-branch"></i> POC REPOSITORY
           </a>
         </article>
+
       </section>
 
       <!-- ===== Ticker ===== -->
@@ -306,18 +265,16 @@
       const drops = Array(columns).fill(1);
 
       function draw(){
-        // velo semi-transparente para dejar estelas
         ctx.fillStyle='rgba(0,0,0,0.08)';
         ctx.fillRect(0,0,c.width,c.height);
 
-        ctx.fillStyle='rgba(255,255,255,0.85)'; // blanco nítido
+        ctx.fillStyle='rgba(255,255,255,0.85)';
         ctx.font=fontSize+'px Share Tech Mono';
 
         for(let i=0;i<drops.length;i++){
           const text = letters[Math.floor(Math.random()*letters.length)];
           ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-          // reinicia en distintos puntos
           if(drops[i]*fontSize > c.height && Math.random()>0.975){
             drops[i]=0;
           }
