@@ -1,78 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p1r4t3h00k - Security from the Shadows</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-* {margin: 0; padding: 0; box-sizing: border-box;}
-body {background: linear-gradient(45deg, #000000, #0a0a0a, #111111); color: #ffffff; font-family: 'Share Tech Mono', monospace; min-height: 100vh;}
-body::before {content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px; animation: binaryFlow 10s linear infinite; z-index: -1;}
-@keyframes binaryFlow {0% { transform: translateY(0);} 100% { transform: translateY(20px);}}
-#container {display: flex; min-height: 100vh;}
-#sidebar {width: 220px; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-right: 2px solid #ffffff; padding: 20px; display: flex; flex-direction: column; box-shadow: 0 0 20px rgba(255,255,255,0.12);}
-#logo {text-align: center; margin-bottom: 20px;}
-#logo img {width: 120px; height: auto; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 15px rgba(255,255,255,0.12); transition: all 0.3s ease;}
-#logo img:hover {transform: scale(1.05); box-shadow: 0 0 25px rgba(255,255,255,0.22);}
-.nav-link {color: #ffffff; text-decoration: none; padding: 12px; margin: 6px 0; display: block; border: 1px solid transparent; border-radius: 5px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;}
-.nav-link:hover {background: rgba(255,255,255,0.06); border-color: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.08); transform: translateX(6px);}
-.nav-link.active {background: rgba(255,255,255,0.12); border-color: #ffffff; color: #ffffff;}
-.nav-link i {color: #ffffff; margin-right: 8px; width: 16px; text-align: center;}
-#content {flex: 1; padding: 36px; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);}
-h1 {font-family: 'Orbitron', monospace; font-size: 3.2em; color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.5); margin-bottom: 12px; animation: glow 2s ease-in-out infinite alternate;}
-@keyframes glow {from { text-shadow: 0 0 20px rgba(255,255,255,0.5);} to { text-shadow: 0 0 30px rgba(255,255,255,0.8);}}
-.subtitle {font-size: 1.2em; color: #cccccc; margin-bottom: 14px; font-weight: 300;}
-.terminal-prompt {color: #ffffff; font-weight: bold; margin-bottom: 18px;}
-.description {font-size: 1.02em; line-height: 1.7; color: #e6e6e6; margin-bottom: 28px; max-width: 900px;}
-.skills-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px;}
-.skill-card {background: rgba(0,0,0,0.65); border: 2px solid #ffffff; border-radius: 10px; padding: 18px; transition: all 0.25s ease; position: relative; overflow: hidden;}
-.skill-card::before {content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); transition: left 0.5s ease;}
-.skill-card:hover::before {left: 100%;}
-.skill-card:hover {transform: translateY(-6px); box-shadow: 0 12px 30px rgba(255,255,255,0.06); border-color: #cccccc;}
-.skill-icon {font-size: 2.2em; margin-bottom: 10px; text-align: center; color: #ffffff;}
-.skill-title {font-family: 'Orbitron', monospace; font-size: 1.1em; color: #ffffff; margin-bottom: 8px; text-align: center;}
-.skill-description {color: #cccccc; line-height: 1.5; text-align: center;}
-.social-links {margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap;}
-.social-link {color: #ffffff; text-decoration: none; padding: 10px 18px; border: 2px solid #ffffff; border-radius: 6px; transition: all 0.2s ease; background: rgba(0,0,0,0.6); font-weight:bold;}
-.social-link:hover {background: rgba(255,255,255,0.06); box-shadow: 0 0 12px rgba(255,255,255,0.12); transform: translateY(-3px);}
-footer{margin-top:28px;color:#bdbdbd;font-size:0.9em;text-align:center}
-@media (max-width: 768px) {#container {flex-direction: column;} #sidebar {width:100%; border-right:none; border-bottom:2px solid #ffffff;} h1{font-size:2em;} .skills-grid{grid-template-columns:1fr}}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>p1r4t3h00k - Guías</title>
+
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      background:#000;color:#fff;font-family:'Share Tech Mono',monospace;
+      min-height:100vh;position:relative;overflow-x:hidden;
+    }
+
+    /* ===== Fondo Matrix (idéntico a index/poc) ===== */
+    #matrix{position:fixed;inset:0;z-index:-2;background:#000}
+    body::before{
+      content:"";position:fixed;inset:0;
+      background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
+      background-size:20px 20px;z-index:-1;pointer-events:none;
+    }
+
+    /* ===== Layout ===== */
+    #container{display:flex;min-height:100vh}
+    #sidebar{
+      width:200px;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);
+      border-right:2px solid #fff;padding:20px;display:flex;flex-direction:column;
+      box-shadow:0 0 20px rgba(255,255,255,.25)
+    }
+    #logo{text-align:center;margin-bottom:20px}
+    #logo img{
+      width:120px;border-radius:50%;border:2px solid #fff;
+      box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
+    }
+    #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
+    .nav-link{
+      color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
+      border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
+      text-transform:uppercase;letter-spacing:1px;font-weight:bold
+    }
+    .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
+    .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
+    .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
+    #content{flex:1;padding:40px}
+
+    h1{
+      font-family:'Orbitron',monospace;font-size:3.0em;color:#fff;
+      text-shadow:0 0 18px rgba(255,255,255,.45);margin-bottom:10px
+    }
+    .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:18px}
+    .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:22px}
+    .description{
+      font-size:1.05em;line-height:1.8;color:#e6e6e6;
+      margin-bottom:18px;max-width:980px
+    }
+
+    /* ===== Filtros simples (opcionales) ===== */
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .chip{border:2px solid #fff;border-radius:999px;padding:6px 12px;font-size:.82rem;cursor:pointer}
+    .chip.active,.chip:hover{background:#fff;color:#000}
+
+    /* ===== Grid de videos ===== */
+    .vid-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:24px;
+    }
+    .vid-card{
+      background:rgba(0,0,0,.65);border:2px solid #fff;border-radius:16px;
+      padding:16px;box-shadow:0 0 20px rgba(255,255,255,.15);transition:.25s;position:relative
+    }
+    .vid-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(255,255,255,.25);border-color:#e6e6e6}
+    .pill{
+      position:absolute;top:10px;right:10px;
+      font-size:.72rem;letter-spacing:.6px;border:2px solid #fff;border-radius:999px;
+      padding:3px 10px;color:#111;background:#fff;font-weight:bold
+    }
+    .vid-title{display:block;font-family:'Orbitron',monospace;font-size:1.05rem;margin:10px 0 6px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+    .badge{border:2px solid #fff;border-radius:12px;padding:2px 8px;font-size:.78rem}
+    .vid-desc{color:#d5d5d5;font-size:.95rem;line-height:1.5;min-height:54px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:2px solid #fff;border-radius:8px;color:#fff;text-decoration:none;font-weight:bold}
+    .btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
+    .btn i{width:16px;text-align:center}
+
+    /* ==== Iframe responsive ==== */
+    .player{
+      position:relative;width:100%;padding-bottom:56.25%; /* 16:9 */
+      border-radius:12px;overflow:hidden;border:2px solid #fff;background:#000
+    }
+    .player iframe{
+      position:absolute;inset:0;width:100%;height:100%;border:0
+    }
+
+    footer{margin-top:28px;color:#bdbdbd;font-size:.9em;text-align:center}
+
+    @media (max-width:768px){
+      #container{flex-direction:column}
+      #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
+      h1{font-size:2.4em}
+    }
+  </style>
 </head>
 <body>
-    <div id="container">
-        <div id="sidebar">
-            <div id="logo">
-                <img src="gotr00t_wallpaper.png" alt="logo">
-            </div>
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-            <a href="poc.html" class="nav-link"><i class="fas fa-bug"></i>PoC</a>
-            <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Projects</a>
-            <a href="guides.html" class="nav-link active"><i class="fas fa-book"></i>Guides</a>
-            <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
-            <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a>
-        </div>
-        <div id="content">
-<h1>Guides</h1>
-<p class='subtitle'>c0d3Ninja</p>
-<p class='terminal-prompt'>p1r4t3h00k@hacker:~$ Knowledge base loaded.</p>
+  <!-- Canvas del efecto Matrix -->
+  <canvas id="matrix"></canvas>
 
-<div class='description'>
-<div class='description'><p>Guides and tutorials placeholder.</p></div>
-</div>
-            <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
-        </div>
+  <div id="container">
+    <div id="sidebar">
+      <div id="logo">
+        <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
+      </div>
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
+      <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
+      <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
+      <a href="guides.html" class="nav-link active"><i class="fas fa-book"></i>Guías</a>
+      <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
+      <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contacto</a>
     </div>
-    <script>
-        // hover border effect
-        document.querySelectorAll('.skill-card').forEach(card => {
-            card.addEventListener('mouseenter', () => { card.style.borderColor = '#cccccc'; });
-            card.addEventListener('mouseleave', () => { card.style.borderColor = '#ffffff'; });
-        });
-        // simulate init
-        setTimeout(()=>{ const t = document.querySelector('.terminal-prompt'); if(t) t.textContent = 'p1r4t3h00k@hacker:~$ Access granted. Explore the digital underground.'; }, 900);
-    </script>
+
+    <div id="content">
+      <h1>Guías</h1>
+      <p class="subtitle">@p1r4t3h00k</p>
+      <p class="terminal-prompt">p1r4t3h00k@guides:~$ Knowledge base cargada. Play & hack.</p>
+
+      <div class="description">
+        Colección de videos didácticos: **HTB Starting Point**, **VulnHub**, y laboratorios web. Cada tarjeta trae vista previa y enlaces rápidos.
+      </div>
+
+      <!-- Filtros opcionales (sin JS aún) -->
+      <div class="filters">
+        <span class="chip active">Todos</span>
+        <span class="chip">HTB</span>
+        <span class="chip">VulnHub</span>
+        <span class="chip">Web</span>
+      </div>
+
+      <!-- ===== Grid de videos ===== -->
+      <section class="vid-grid">
+
+        <!-- VulnHub -->
+        <article class="vid-card" data-tags="VulnHub">
+          <span class="pill">VULNHUB</span>
+          <div class="player">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/i_8aBiTULOc" title="SECTALKS BNE0X03 - SIMPLE (VulnHub)"></iframe>
+          </div>
+          <span class="vid-title">Hacking ético: SECTALKS BNE0X03 - SIMPLE</span>
+          <div class="meta"><span class="badge">Linux</span><span class="badge">Enumeración</span></div>
+          <p class="vid-desc">Resolución completa de la VM SIMPLE de VulnHub: reconocimiento, explotación y escalada.</p>
+          <div class="btns">
+            <a class="btn" href="https://youtu.be/i_8aBiTULOc" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a>
+          </div>
+        </article>
+
+        <!-- HTB Starting Point -->
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/hTZqQyX0zAA" title="HTB - Vaccine"></iframe></div>
+          <span class="vid-title">Hack The Box — Vaccine</span>
+          <div class="meta"><span class="badge">Windows</span><span class="badge">SQLi</span></div>
+          <p class="vid-desc">Walkthrough práctico de Vaccine (Starting Point).</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/hTZqQyX0zAA" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/qkIDxsn-SPk" title="HTB - Meow"></iframe></div>
+          <span class="vid-title">Hack The Box — Meow</span>
+          <div class="meta"><span class="badge">Telnet</span><span class="badge">Creds por defecto</span></div>
+          <p class="vid-desc">Inicio ideal para novatos: enumeración básica y acceso inicial.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/qkIDxsn-SPk" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dssJcwrPmH0" title="HTB - Fawn"></iframe></div>
+          <span class="vid-title">Hack The Box — Fawn</span>
+          <div class="meta"><span class="badge">FTP</span><span class="badge">Anon login</span></div>
+          <p class="vid-desc">Enumeración de servicios y extracción de flags por FTP.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/dssJcwrPmH0" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kVJQ7d1-q0g" title="HTB - Dancing"></iframe></div>
+          <span class="vid-title">Hack The Box — Dancing</span>
+          <div class="meta"><span class="badge">SMB</span><span class="badge">Recon</span></div>
+          <p class="vid-desc">SMB shares, enumeración y movimiento lateral básico.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/kVJQ7d1-q0g" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/nSloRYd09B8" title="HTB - Redeemer"></iframe></div>
+          <span class="vid-title">Hack The Box — Redeemer</span>
+          <div class="meta"><span class="badge">Redis</span><span class="badge">Data exfil</span></div>
+          <p class="vid-desc">Redis 101: enumeración de claves y lectura de flags.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/nSloRYd09B8" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Ym_QWZ6p86w" title="HTB - Appointment"></iframe></div>
+          <span class="vid-title">Hack The Box — Appointment</span>
+          <div class="meta"><span class="badge">Timing</span><span class="badge">Recon</span></div>
+          <p class="vid-desc">Ruta completa a user/root con buenas prácticas de enum.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/Ym_QWZ6p86w" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/WiS-9gK3b8o" title="HTB - Sequel"></iframe></div>
+          <span class="vid-title">Hack The Box — Sequel</span>
+          <div class="meta"><span class="badge">MySQL</span><span class="badge">Creds</span></div>
+          <p class="vid-desc">Enumeración de MySQL y abuso de permisos.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/WiS-9gK3b8o" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/n6uFf5hq0xc" title="HTB - Responder"></iframe></div>
+          <span class="vid-title">Hack The Box — Responder</span>
+          <div class="meta"><span class="badge">Responder</span><span class="badge">LLMNR</span></div>
+          <p class="vid-desc">Captura de hashes en red y cracking controlado.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/n6uFf5hq0xc" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/OudkEZ8LlIo" title="HTB - Three"></iframe></div>
+          <span class="vid-title">Hack The Box — Three</span>
+          <div class="meta"><span class="badge">Web</span><span class="badge">PrivEsc</span></div>
+          <p class="vid-desc">Explotación web + escalada de privilegios.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/OudkEZ8LlIo" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <article class="vid-card" data-tags="HTB">
+          <span class="pill">HTB</span>
+          <div class="player"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3ULFZG_ZSIU" title="HTB - Archetype"></iframe></div>
+          <span class="vid-title">Hack The Box — Archetype</span>
+          <div class="meta"><span class="badge">MSSQL</span><span class="badge">RCE</span></div>
+          <p class="vid-desc">Abuso de credenciales y ejecución remota via SQL Server.</p>
+          <div class="btns"><a class="btn" href="https://youtu.be/3ULFZG_ZSIU" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a></div>
+        </article>
+
+        <!-- Web / PortSwigger -->
+        <article class="vid-card" data-tags="Web">
+          <span class="pill">WEB</span>
+          <div class="player">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/24SQwDXHmX0" title="SQL WHERE - PortSwigger Lab"></iframe>
+          </div>
+          <span class="vid-title">SQL WHERE — Laboratorio PortSwigger</span>
+          <div class="meta"><span class="badge">SQLi</span><span class="badge">PortSwigger</span></div>
+          <p class="vid-desc">Ejercicio guiado para entender y explotar filtros en cláusula WHERE.</p>
+          <div class="btns">
+            <a class="btn" href="https://youtu.be/24SQwDXHmX0" target="_blank" rel="noopener"><i class="fas fa-play"></i>Ver en YouTube</a>
+          </div>
+        </article>
+
+      </section>
+
+      <footer>© 2025 Gabriel • p1r4t3h00k • Built with ❤</footer>
+    </div>
+  </div>
+
+  <script>
+    // Mensaje estilo terminal
+    setTimeout(()=>{
+      const t=document.querySelector('.terminal-prompt');
+      if(t) t.textContent='p1r4t3h00k@guides:~$ Videos listos. Aprende y rompe… éticamente.';
+    },1200);
+
+    // ===== Canvas Matrix (igual que index/poc) =====
+    (function(){
+      const c=document.getElementById('matrix');
+      const ctx=c.getContext('2d');
+      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
+      resize(); window.addEventListener('resize',resize);
+
+      const letters='01', fontSize=16, columns=Math.floor(c.width/fontSize);
+      const drops=Array(columns).fill(1);
+
+      function draw(){
+        ctx.fillStyle='rgba(0,0,0,0.08)'; ctx.fillRect(0,0,c.width,c.height);
+        ctx.fillStyle='rgba(255,255,255,0.85)'; ctx.font=fontSize+'px Share Tech Mono';
+        for(let i=0;i<drops.length;i++){
+          const t=letters[Math.floor(Math.random()*letters.length)];
+          ctx.fillText(t,i*fontSize,drops[i]*fontSize);
+          if(drops[i]*fontSize>c.height && Math.random()>0.975) drops[i]=0;
+          drops[i]++;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
 </body>
 </html>
