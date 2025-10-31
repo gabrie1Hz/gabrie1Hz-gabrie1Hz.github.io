@@ -70,7 +70,6 @@
       margin-bottom:28px;max-width:980px
     }
 
-    /* rejilla y demás estilos de tu index pueden quedarse como los tenías si quieres */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:40px}
     .skill-card{background:rgba(0,0,0,.78);border:2px solid #fff;border-radius:10px;padding:20px;transition:.25s;position:relative;overflow:hidden}
     .skill-card::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transition:left .5s}
@@ -83,6 +82,17 @@
     .social-links{margin-top:40px;display:flex;gap:20px;flex-wrap:wrap}
     .social-link{color:#fff;text-decoration:none;padding:12px 25px;border:2px solid #fff;border-radius:8px;transition:.2s;background:rgba(0,0,0,.78);font-weight:bold}
     .social-link:hover{background:#fff;color:#000;box-shadow:0 0 15px rgba(255,255,255,.5);transform:translateY(-2px)}
+
+    /* ===== Ticker (mismo formato que otras páginas) ===== */
+    .ticker-container{
+      margin-top:28px;border-top:1px solid rgba(255,255,255,.25);
+      padding-top:12px;text-align:center;overflow:hidden
+    }
+    .ticker{
+      font-size:1.0rem;color:#cfcfcf;text-shadow:0 0 10px rgba(255,255,255,.25);
+      white-space:nowrap;display:inline-block;animation:scrollText 18s linear infinite
+    }
+    @keyframes scrollText {0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
     @media (max-width:768px){
       #container{flex-direction:column}
@@ -162,12 +172,12 @@
         </a>
       </div>
 
-      <br><br><br>
-      <h3>
-        <marquee id="ticker" behavior="scroll" direction="left" scrollamount="6">
+      <!-- Ticker consistente con el resto -->
+      <div class="ticker-container">
+        <div id="ticker" class="ticker">
           p1r4t3h00k — Ingeniero en Sistemas • Ciberseguridad & Hacking Ético • Writeups HTB (Starting Point)
-        </marquee>
-      </h3>
+        </div>
+      </div>
     </div>
   </div>
 
