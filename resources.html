@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>p1r4t3h00k | Biblioteca de Recursos</title>
+
+  <meta name="description"
+        content="Biblioteca de recursos educativos de p1r4t3h00k. Descarga guías de Linux, ciberseguridad, Blue Team y Red Team.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --card: rgba(8, 8, 8, 0.88);
+      --border: #ffffff;
+      --text: #ffffff;
+      --muted: #bdbdbd;
+      --hover: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       FONDO MATRIX
+    ========================= */
+
+    #matrix {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: #000;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(
+          circle at 1px 1px,
+          rgba(255,255,255,.06) 1px,
+          transparent 0
+        );
+      background-size: 22px 22px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* =========================
+       ESTRUCTURA PRINCIPAL
+    ========================= */
+
+    #container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    #sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background: rgba(0,0,0,.93);
+      backdrop-filter: blur(12px);
+      border-right: 2px solid #fff;
+      padding: 25px 15px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 25px rgba(255,255,255,.15);
+    }
+
+    #logo {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    #logo img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 20px rgba(255,255,255,.35);
+      transition: .3s;
+    }
+
+    #logo img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px rgba(255,255,255,.65);
+    }
+
+    .nav-link {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 15px 12px;
+      margin: 5px 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .nav-link i {
+      margin-right: 10px;
+      width: 18px;
+      text-align: center;
+    }
+
+    .nav-link:hover {
+      background: var(--hover);
+      border-color: white;
+      transform: translateX(4px);
+    }
+
+    .nav-link.active {
+      background: rgba(255,255,255,.17);
+      border: 1px solid white;
+    }
+
+    /* =========================
+       CONTENIDO
+    ========================= */
+
+    #content {
+      flex: 1;
+      min-width: 0;
+      padding: 45px;
+    }
+
+    .header {
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(28px, 4vw, 55px);
+      font-weight: 900;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px rgba(255,255,255,.35);
+    }
+
+    .subtitle {
+      color: #bcbcbc;
+      font-size: 15px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .terminal {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .terminal::before {
+      content: ">";
+      margin-right: 10px;
+    }
+
+    .description {
+      color: #d0d0d0;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 900px;
+    }
+
+    /* =========================
+       PANEL DE ESTADÍSTICAS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0;
+    }
+
+    .stat-box {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-box i {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .stat-number {
+      display: block;
+      font-family: 'Orbitron', monospace;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       BUSCADOR
+    ========================= */
+
+    .search-panel {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: rgba(0,0,0,.8);
+      border: 1px solid white;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 30px 0 12px;
+    }
+
+    .search-panel i {
+      color: white;
+      font-size: 18px;
+    }
+
+    .search-panel input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 15px;
+    }
+
+    .search-panel input::placeholder {
+      color: #999;
+    }
+
+    .resource-count {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       SECCIÓN DE RECURSOS
+    ========================= */
+
+    .section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 20px;
+      margin: 30px 0 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    /* =========================
+       TARJETAS
+    ========================= */
+
+    .resource-card {
+      background: var(--card);
+      border: 2px solid white;
+      border-radius: 16px;
+      padding: 25px;
+      position: relative;
+      transition: .3s ease;
+      box-shadow: 0 0 20px rgba(255,255,255,.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(255,255,255,.25);
+    }
+
+    .resource-card[hidden] {
+      display: none;
+    }
+
+    .resource-icon {
+      width: 65px;
+      height: 65px;
+      border: 2px solid white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(255,255,255,.15);
+    }
+
+    .resource-type {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      border: 1px solid white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      background: white;
+      color: black;
+    }
+
+    .resource-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .resource-description {
+      color: #c8c8c8;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    /* =========================
+       ETIQUETAS
+    ========================= */
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,.7);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: white;
+    }
+
+    /* =========================
+       BOTONES
+    ========================= */
+
+    .resource-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 15px;
+      border: 2px solid white;
+      border-radius: 9px;
+      text-decoration: none;
+      color: white;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      font-weight: bold;
+      transition: .25s;
+      cursor: pointer;
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: white;
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      background: #d6d6d6;
+    }
+
+    /* =========================
+       SIN RESULTADOS
+    ========================= */
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      border: 1px dashed #777;
+      border-radius: 12px;
+      padding: 50px 20px;
+      color: #aaa;
+    }
+
+    .empty-state i {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 60px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.3);
+      text-align: center;
+      color: #aaa;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      #container {
+        flex-direction: column;
+      }
+
+      #sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid white;
+      }
+
+      #logo {
+        margin-bottom: 15px;
+      }
+
+      #content {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FONDO MATRIX -->
+  <canvas id="matrix" aria-hidden="true"></canvas>
+
+  <div id="container">
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sidebar">
+
+      <div id="logo">
+        <a href="index.html">
+          <img
+            src="p1r4t3h00k.png"
+            alt="Logo p1r4t3h00k"
+          >
+        </a>
+      </div>
+
+      <nav aria-label="Navegación principal">
+
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          Inicio
+        </a>
+
+        <a href="poc.html" class="nav-link">
+          <i class="fas fa-terminal"></i>
+          Laboratorio
+        </a>
+
+        <a href="projects.html" class="nav-link">
+          <i class="fas fa-code"></i>
+          Proyectos
+        </a>
+
+        <a href="guides.html" class="nav-link">
+          <i class="fas fa-book"></i>
+          Guías
+        </a>
+
+        <a href="blog.html" class="nav-link">
+          <i class="fas fa-pen-nib"></i>
+          Blog
+        </a>
+
+        <a href="contact.html" class="nav-link">
+          <i class="fas fa-envelope"></i>
+          Contacto
+        </a>
+
+        <a href="resources.html"
+           class="nav-link active"
+           aria-current="page">
+          <i class="fas fa-file-pdf"></i>
+          Recursos PDF
+        </a>
+
+      </nav>
+
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main id="content">
+
+      <!-- ENCABEZADO -->
+      <header class="header">
+
+        <h1>
+          RECURSOS PDF
+        </h1>
+
+        <p class="subtitle">
+          @p1r4t3h00k // BIBLIOTECA DIGITAL
+        </p>
+
+        <p class="terminal">
+          Acceso público a recursos educativos...
+        </p>
+
+        <p class="description">
+          Bienvenido a mi biblioteca digital.
+
+          Aquí encontrarás documentación técnica,
+          manuales, guías de instalación y material
+          complementario de mis tutoriales.
+
+          Mi objetivo es compartir conocimientos
+          relacionados con Linux, ciberseguridad,
+          administración de sistemas, Blue Team
+          y Red Team.
+
+          Todos los recursos publicados en esta
+          sección podrán consultarse gratuitamente.
+        </p>
+
+      </header>
+
+      <!-- ESTADÍSTICAS -->
+      <section class="stats" aria-label="Información de la biblioteca">
+
+        <div class="stat-box">
+
+          <i class="fas fa-file-pdf"></i>
+
+          <span class="stat-number" id="total-resources">
+            0
+          </span>
+
+          <span class="stat-label">
+            DOCUMENTOS PUBLICADOS
+          </span>
+
+        </div>
+
+        <div class="stat-box">
+
+          <i class="fas fa-book-open"></i>
+
+          <span class="stat-number">
+            PDF
+          </span>
+
+          <span class="stat-label">
+            FORMATO DISPONIBLE
+          </span>
+
+        </div>
+
+        <div class="stat-box">
+
+          <i class="fas fa-unlock"></i>
+
+          <span class="stat-number">
+            FREE
+          </span>
+
+          <span class="stat-label">
+            ACCESO GRATUITO
+          </span>
+
+        </div>
+
+      </section>
+
+      <!-- BUSCADOR -->
+      <label class="search-panel" for="searchInput">
+
+        <i class="fas fa-search"></i>
+
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Buscar guías, Linux, Archinstall, seguridad..."
+          autocomplete="off"
+        >
+
+      </label>
+
+      <p class="resource-count" id="resourceCount"
+         aria-live="polite"></p>
+
+      <!-- BIBLIOTECA -->
+      <h2 class="section-title">
+
+        <i class="fas fa-folder-open"></i>
+        DOCUMENTACIÓN DISPONIBLE
+
+      </h2>
+
+      <section
+        class="resources-grid"
+        id="resourcesGrid"
+        aria-label="Recursos descargables"
+      >
+
+        <!-- ==================================
+             RECURSO 1: ARCH LINUX
+        =================================== -->
+
+        <article
+          class="resource-card"
+          data-search="arch linux archinstall xfce instalación tutorial guía 2026"
+        >
+
+          <span class="resource-type">
+            PDF
+          </span>
+
+          <div class="resource-icon">
+            <i class="fab fa-linux"></i>
+          </div>
+
+          <h3 class="resource-title">
+            Guía de instalación de Arch Linux 2026
+          </h3>
+
+          <p class="resource-description">
+
+            Documentación paso a paso para instalar
+            Arch Linux desde cero utilizando Archinstall.
+
+            Incluye configuración de Wi-Fi, particionado
+            del disco, gestor de arranque, escritorio XFCE4
+            y recomendaciones para solucionar problemas
+            durante la instalación.
+
+          </p>
+
+          <div class="tags">
+
+            <span class="tag">
+              ARCH LINUX
+            </span>
+
+            <span class="tag">
+              ARCHINSTALL
+            </span>
+
+            <span class="tag">
+              XFCE4
+            </span>
+
+            <span class="tag">
+              LINUX
+            </span>
+
+          </div>
+
+          <div class="resource-actions">
+
+            <a
+              href="recursos/guia-arch-linux.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+            >
+
+              <i class="fas fa-eye"></i>
+              VER PDF
+
+            </a>
+
+            <a
+              href="recursos/guia-arch-linux.pdf"
+              download="Guia-Arch-Linux.pdf"
+              class="btn btn-primary"
+            >
+
+              <i class="fas fa-download"></i>
+              DESCARGAR
+
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- ==================================
+             AQUÍ PODRÁS AGREGAR MÁS RECURSOS
+        =================================== -->
+
+      </section>
+
+      <!-- SIN RESULTADOS -->
+      <div class="empty-state" id="emptyState">
+
+        <i class="fas fa-search"></i>
+
+        <p>
+          No se encontraron recursos con ese término.
+        </p>
+
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+
+        <p>
+          <strong>p1r4t3h00k</strong>
+          — Seguridad desde las Sombras
+        </p>
+
+        <p>
+          Biblioteca digital de recursos educativos
+        </p>
+
+        <p>
+          © <span id="year"></span>
+          p1r4t3h00k
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+
+    /* =========================
+       MATRIX BACKGROUND
+    ========================= */
+
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    const fontSize = 16;
+    const characters = "01";
+
+    let drops = [];
+    let columns = 0;
+
+    function resizeCanvas() {
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      columns = Math.ceil(canvas.width / fontSize);
+
+      drops = Array.from(
+        { length: columns },
+        () => Math.floor(Math.random() * -40)
+      );
+
+    }
+
+    resizeCanvas();
+
+    window.addEventListener("resize", resizeCanvas);
+
+    function drawMatrix() {
+
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+
+      ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      ctx.fillStyle = "rgba(255,255,255,0.75)";
+
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+
+        const character =
+          characters.charAt(
+            Math.floor(Math.random() * characters.length)
+          );
+
+        ctx.fillText(
+          character,
+          i * fontSize,
+          drops[i] * fontSize
+        );
+
+        if (
+          drops[i] * fontSize > canvas.height &&
+          Math.random() > 0.975
+        ) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+
+      }
+
+      requestAnimationFrame(drawMatrix);
+
+    }
+
+    if (ctx) {
+      drawMatrix();
+    }
+
+    /* =========================
+       BUSCADOR DE RECURSOS
+    ========================= */
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const resourceCards =
+      document.querySelectorAll(".resource-card");
+
+    const resourceCount =
+      document.getElementById("resourceCount");
+
+    const emptyState =
+      document.getElementById("emptyState");
+
+    const totalResources =
+      document.getElementById("total-resources");
+
+    totalResources.textContent = resourceCards.length;
+
+    function normalizeText(text) {
+
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    }
+
+    function searchResources() {
+
+      const searchTerm =
+        normalizeText(searchInput.value.trim());
+
+      let visibleResources = 0;
+
+      resourceCards.forEach(card => {
+
+        const content = normalizeText(
+          card.textContent + " " +
+          (card.dataset.search || "")
+        );
+
+        const match = content.includes(searchTerm);
+
+        card.hidden = !match;
+
+        if (match) {
+          visibleResources++;
+        }
+
+      });
+
+      resourceCount.textContent =
+        visibleResources +
+        (visibleResources === 1
+          ? " recurso disponible"
+          : " recursos disponibles");
+
+      emptyState.style.display =
+        visibleResources === 0 ? "block" : "none";
+
+    }
+
+    searchInput.addEventListener(
+      "input",
+      searchResources
+    );
+
+    searchResources();
+
+    /* =========================
+       AÑO AUTOMÁTICO
+    ========================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
