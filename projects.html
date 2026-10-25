@@ -12,6 +12,7 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html,body{height:100%}
+
     body{
       background:#000;
       color:#fff;
@@ -23,62 +24,152 @@
 
     /* ===== Fondo Matrix (blanco/gris) ===== */
     #matrix{
-      position:fixed;inset:0;
+      position:fixed;
+      inset:0;
       z-index:-2;
       background:#000;
     }
-    /* Neblina de puntos tenue encima del matrix (igual que index/poc) */
+
+    /* Neblina de puntos tenue encima del Matrix */
     body::before{
-      content:"";position:fixed;inset:0;
-      background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:radial-gradient(
+        circle at 1px 1px,
+        rgba(255,255,255,.08) 1px,
+        transparent 0
+      );
       background-size:20px 20px;
-      z-index:-1; pointer-events:none;
+      z-index:-1;
+      pointer-events:none;
     }
 
     /* ===== Layout ===== */
-    #container{display:flex;min-height:100vh}
+    #container{
+      display:flex;
+      min-height:100vh;
+    }
+
     #sidebar{
-      width:200px;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);
-      border-right:2px solid #fff;padding:20px;display:flex;flex-direction:column;
-      box-shadow:0 0 20px rgba(255,255,255,.25)
+      width:200px;
+      background:rgba(0,0,0,.9);
+      backdrop-filter:blur(10px);
+      border-right:2px solid #fff;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 0 20px rgba(255,255,255,.25);
     }
-    #logo{text-align:center;margin-bottom:20px}
+
+    #logo{
+      text-align:center;
+      margin-bottom:20px;
+    }
+
     #logo img{
-      width:120px;border-radius:50%;border:2px solid #fff;
-      box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
+      width:120px;
+      border-radius:50%;
+      border:2px solid #fff;
+      box-shadow:0 0 15px rgba(255,255,255,.4);
+      transition:.25s;
     }
-    #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
+
+    #logo img:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 24px rgba(255,255,255,.7);
+    }
+
+    /* ===== Menú de navegación ===== */
     .nav-link{
-      color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
-      border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
-      text-transform:uppercase;letter-spacing:1px;font-weight:bold
+      color:#fff;
+      text-decoration:none;
+      padding:15px;
+      margin:5px 0;
+      display:block;
+      border:1px solid rgba(255,255,255,0);
+      border-radius:8px;
+      transition:.2s;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:bold;
     }
-    .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
-    .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
-    .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
-    #content{flex:1;padding:40px}
+
+    .nav-link i{
+      color:#fff;
+      margin-right:8px;
+      width:16px;
+      text-align:center;
+    }
+
+    .nav-link:hover{
+      background:rgba(255,255,255,.08);
+      border-color:#fff;
+      transform:translateX(4px);
+    }
+
+    .nav-link.active{
+      background:rgba(255,255,255,.18);
+      border-color:#fff;
+    }
+
+    /* ===== Contenido ===== */
+    #content{
+      flex:1;
+      min-width:0;
+      padding:40px;
+    }
 
     h1{
-      font-family:'Orbitron',monospace;font-size:3.2em;color:#fff;
+      font-family:'Orbitron',monospace;
+      font-size:3.2em;
+      color:#fff;
       text-shadow:0 0 18px rgba(255,255,255,.45);
-      margin-bottom:10px
-    }
-    .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:18px}
-    .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:24px}
-    .description{
-      font-size:1.05em;line-height:1.8;color:#e6e6e6;
-      margin-bottom:22px;max-width:980px
+      margin-bottom:10px;
     }
 
-    /* ===== Controles de filtro (opcionales) ===== */
+    .subtitle{
+      font-size:1.1em;
+      color:#cfcfcf;
+      margin-bottom:18px;
+    }
+
+    .terminal-prompt{
+      color:#eaeaea;
+      font-weight:bold;
+      margin-bottom:24px;
+    }
+
+    .description{
+      font-size:1.05em;
+      line-height:1.8;
+      color:#e6e6e6;
+      margin-bottom:22px;
+      max-width:980px;
+    }
+
+    /* ===== Controles de filtro ===== */
     .filters{
-      display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
     }
+
     .chip{
-      border:2px solid #fff;border-radius:999px;padding:6px 12px;
-      font-size:.82rem;cursor:pointer;user-select:none
+      border:2px solid #fff;
+      border-radius:999px;
+      padding:6px 12px;
+      font-size:.82rem;
+      cursor:pointer;
+      user-select:none;
     }
-    .chip.active,.chip:hover{background:#fff;color:#000}
+
+    .chip.active,
+    .chip:hover{
+      background:#fff;
+      color:#000;
+    }
 
     /* ===== Grid de proyectos ===== */
     .proj-grid{
@@ -86,87 +177,237 @@
       grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
       gap:24px;
     }
+
     .proj-card{
       background:rgba(0,0,0,.65);
-      border:2px solid #fff;border-radius:16px;padding:22px;
-      position:relative;transition:.25s ease;
+      border:2px solid #fff;
+      border-radius:16px;
+      padding:22px;
+      position:relative;
+      transition:.25s ease;
       box-shadow:0 0 20px rgba(255,255,255,.15);
     }
-    .proj-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(255,255,255,.25);border-color:#e6e6e6}
+
+    .proj-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 28px rgba(255,255,255,.25);
+      border-color:#e6e6e6;
+    }
+
     .pill{
-      position:absolute;top:10px;right:10px;
-      font-size:.72rem;letter-spacing:.6px;
-      border:2px solid #fff;border-radius:999px;padding:3px 10px;
-      color:#111;background:#fff;font-weight:bold
+      position:absolute;
+      top:10px;
+      right:10px;
+      font-size:.72rem;
+      letter-spacing:.6px;
+      border:2px solid #fff;
+      border-radius:999px;
+      padding:3px 10px;
+      color:#111;
+      background:#fff;
+      font-weight:bold;
     }
+
     .proj-title{
-      display:block;font-family:'Orbitron',monospace;
-      font-size:1.22rem;margin:6px 0 6px 0
+      display:block;
+      font-family:'Orbitron',monospace;
+      font-size:1.22rem;
+      margin:6px 0 6px 0;
     }
-    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px 0}
-    .badge{border:2px solid #fff;border-radius:12px;padding:2px 8px;font-size:.78rem}
-    .status{border-color:#9ae6b4}
-    .proj-desc{color:#d5d5d5;font-size:.98rem;line-height:1.55;min-height:88px}
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:8px 0 12px 0;
+    }
+
+    .badge{
+      border:2px solid #fff;
+      border-radius:12px;
+      padding:2px 8px;
+      font-size:.78rem;
+    }
+
+    .status{
+      border-color:#9ae6b4;
+    }
+
+    .proj-desc{
+      color:#d5d5d5;
+      font-size:.98rem;
+      line-height:1.55;
+      min-height:88px;
+    }
+
+    .btns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
     .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 14px;border:2px solid #fff;border-radius:10px;
-      color:#fff;text-decoration:none;font-weight:bold;transition:.2s
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border:2px solid #fff;
+      border-radius:10px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      transition:.2s;
     }
-    .btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
-    .btn i{width:16px;text-align:center}
+
+    .btn:hover{
+      background:#fff;
+      color:#000;
+      transform:translateY(-2px);
+    }
+
+    .btn i{
+      width:16px;
+      text-align:center;
+    }
 
     /* ===== Ticker ===== */
     .ticker-container{
-      margin-top:28px;border-top:1px solid rgba(255,255,255,.25);
-      padding-top:12px;text-align:center;overflow:hidden
+      margin-top:28px;
+      border-top:1px solid rgba(255,255,255,.25);
+      padding-top:12px;
+      text-align:center;
+      overflow:hidden;
     }
+
     .ticker{
-      font-size:1.0rem;color:#cfcfcf;text-shadow:0 0 10px rgba(255,255,255,.25);
-      white-space:nowrap;display:inline-block;
-      animation:scrollText 18s linear infinite
+      font-size:1.0rem;
+      color:#cfcfcf;
+      text-shadow:0 0 10px rgba(255,255,255,.25);
+      white-space:nowrap;
+      display:inline-block;
+      animation:scrollText 18s linear infinite;
     }
-    @keyframes scrollText {0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
-    /* Footer (ya no muestra ©) */
-    footer{margin-top:6px;color:#bdbdbd;font-size:.9em;text-align:center}
-    footer::after{content:"";}
+    @keyframes scrollText{
+      0%{
+        transform:translateX(100%);
+      }
 
+      100%{
+        transform:translateX(-100%);
+      }
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      margin-top:6px;
+      color:#bdbdbd;
+      font-size:.9em;
+      text-align:center;
+    }
+
+    footer::after{
+      content:"";
+    }
+
+    /* ===== Responsive ===== */
     @media (max-width:768px){
-      #container{flex-direction:column}
-      #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
-      h1{font-size:2.4em}
+      #container{
+        flex-direction:column;
+      }
+
+      #sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:2px solid #fff;
+      }
+
+      #content{
+        padding:24px;
+      }
+
+      h1{
+        font-size:2.4em;
+      }
+
+      .proj-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <!-- Canvas del efecto Matrix -->
   <canvas id="matrix"></canvas>
 
   <div id="container">
+
+    <!-- ===== SIDEBAR ===== -->
     <div id="sidebar">
+
       <div id="logo">
-        <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
+        <img
+          src="assets/p1r4t3h00k_wallpaper.png"
+          alt="p1r4t3h00k logo"
+        >
       </div>
-      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
-      <a href="poc.html" class="nav-link"><i class="fas fa-terminal"></i>Laboratorio</a>
-      <a href="projects.html" class="nav-link active"><i class="fas fa-code"></i>Proyectos</a>
-      <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guías</a>
-      <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
-      <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contacto</a>
+
+      <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i>Inicio
+      </a>
+
+      <a href="poc.html" class="nav-link">
+        <i class="fas fa-terminal"></i>Laboratorio
+      </a>
+
+      <a href="projects.html" class="nav-link active">
+        <i class="fas fa-code"></i>Proyectos
+      </a>
+
+      <a href="guides.html" class="nav-link">
+        <i class="fas fa-book"></i>Guías
+      </a>
+
+      <!-- ===== NUEVO MÓDULO RECURSOS PDF ===== -->
+      <a href="resources.html" class="nav-link">
+        <i class="fas fa-file-pdf"></i>Recursos PDF
+      </a>
+      <!-- ===== FIN NUEVO MÓDULO ===== -->
+
+      <a href="blog.html" class="nav-link">
+        <i class="fas fa-pen-nib"></i>Blog
+      </a>
+
+      <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i>Contacto
+      </a>
+
     </div>
 
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <div id="content">
+
       <h1>Proyectos</h1>
-      <p class="subtitle">@p1r4t3h00k</p>
-      <p class="terminal-prompt">p1r4t3h00k@projects:~$ Arsenal de desarrollo y dashboards.</p>
+
+      <p class="subtitle">
+        @p1r4t3h00k
+      </p>
+
+      <p class="terminal-prompt">
+        p1r4t3h00k@projects:~$ Arsenal de desarrollo y dashboards.
+      </p>
 
       <div class="description">
-        Recopilación de proyectos destacados. Cada tarjeta incluye stack, estado y enlaces rápidos.
+        Recopilación de proyectos destacados. Cada tarjeta incluye
+        stack, estado y enlaces rápidos.
       </div>
 
-      <!-- Filtros (puedes activarlos con JS más adelante) -->
+      <!-- ===== FILTROS ===== -->
       <div class="filters">
+
         <span class="chip active">Todos</span>
         <span class="chip">Backend</span>
         <span class="chip">Frontend</span>
@@ -174,117 +415,254 @@
         <span class="chip">.NET</span>
         <span class="chip">Python</span>
         <span class="chip">PHP</span>
+
       </div>
 
-      <!-- Grid de proyectos -->
+      <!-- ===== GRID DE PROYECTOS ===== -->
       <section class="proj-grid">
+
+        <!-- ===== PROYECTO 1 ===== -->
         <article class="proj-card">
+
           <span class="pill">ACTIVO</span>
-          <span class="proj-title">Django — Administración de Biblioteca</span>
+
+          <span class="proj-title">
+            Django — Administración de Biblioteca
+          </span>
+
           <div class="meta">
             <span class="badge">Django</span>
             <span class="badge">CRUD</span>
             <span class="badge">PostgreSQL</span>
             <span class="badge status">v0.9</span>
           </div>
-          <p class="proj-desc">Gestión bibliotecaria con préstamos, catálogos y usuarios. Énfasis en arquitectura limpia y buenas prácticas de backend.</p>
+
+          <p class="proj-desc">
+            Gestión bibliotecaria con préstamos, catálogos y usuarios.
+            Énfasis en arquitectura limpia y buenas prácticas de backend.
+          </p>
+
           <div class="btns">
-            <a class="btn" href="https://github.com/gabrie1Hz/Django-Administracion-Biblioteca" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+
+            <a
+              class="btn"
+              href="https://github.com/gabrie1Hz/Django-Administracion-Biblioteca"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-code-branch"></i>Repositorio
+            </a>
+
           </div>
+
         </article>
 
+        <!-- ===== PROYECTO 2 ===== -->
         <article class="proj-card">
+
           <span class="pill">ACTIVO</span>
-          <span class="proj-title">Módulo de Hospitalización</span>
+
+          <span class="proj-title">
+            Módulo de Hospitalización
+          </span>
+
           <div class="meta">
             <span class="badge">.NET/Blazor</span>
             <span class="badge">SQL</span>
             <span class="badge status">v1.1</span>
           </div>
-          <p class="proj-desc">Módulo clínico para gestión de hospitalizaciones: flujos médicos, formularios y persistencia de datos.</p>
+
+          <p class="proj-desc">
+            Módulo clínico para gestión de hospitalizaciones:
+            flujos médicos, formularios y persistencia de datos.
+          </p>
+
           <div class="btns">
-            <a class="btn" href="https://github.com/gabrie1Hz/Modulo-Hospitalizacion" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+
+            <a
+              class="btn"
+              href="https://github.com/gabrie1Hz/Modulo-Hospitalizacion"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-code-branch"></i>Repositorio
+            </a>
+
           </div>
+
         </article>
 
+        <!-- ===== PROYECTO 3 ===== -->
         <article class="proj-card">
+
           <span class="pill">MANTENIMIENTO</span>
-          <span class="proj-title">Gráficos Dinámicos</span>
+
+          <span class="proj-title">
+            Gráficos Dinámicos
+          </span>
+
           <div class="meta">
             <span class="badge">PHP</span>
             <span class="badge">Dashboards</span>
             <span class="badge">Charting</span>
             <span class="badge status">v0.8</span>
           </div>
-          <p class="proj-desc">Paneles con visualizaciones para seguimiento de métricas y reportes operativos.</p>
+
+          <p class="proj-desc">
+            Paneles con visualizaciones para seguimiento
+            de métricas y reportes operativos.
+          </p>
+
           <div class="btns">
-            <a class="btn" href="https://github.com/gabrie1Hz/Graficos-Dinamicos" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i>Repositorio</a>
+
+            <a
+              class="btn"
+              href="https://github.com/gabrie1Hz/Graficos-Dinamicos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-code-branch"></i>Repositorio
+            </a>
+
           </div>
+
         </article>
 
+        <!-- ===== PROYECTO 4 ===== -->
         <article class="proj-card">
+
           <span class="pill">PLAN</span>
-          <span class="proj-title">Dashboard de Producción</span>
+
+          <span class="proj-title">
+            Dashboard de Producción
+          </span>
+
           <div class="meta">
             <span class="badge">Python</span>
             <span class="badge">ETL</span>
             <span class="badge">SQL</span>
             <span class="badge status">Roadmap</span>
           </div>
-          <p class="proj-desc">ETL + visualizaciones para controlar métricas de producción (POC: mango line). Integración con base de datos y alertas.</p>
+
+          <p class="proj-desc">
+            ETL + visualizaciones para controlar métricas
+            de producción (POC: mango line).
+            Integración con base de datos y alertas.
+          </p>
+
           <div class="btns">
-            <a class="btn" href="#" onclick="return false;"><i class="fas fa-eye"></i>Demo (próx.)</a>
+
+            <a
+              class="btn"
+              href="#"
+              onclick="return false;"
+            >
+              <i class="fas fa-eye"></i>Demo (próx.)
+            </a>
+
           </div>
+
         </article>
+
       </section>
 
-      <!-- ticker -->
+      <!-- ===== TICKER ===== -->
       <div class="ticker-container">
-        <div id="ticker" class="ticker">p1r4t3h00k — Seguridad desde las Sombras • Aprende, rompe y documenta (éticamente)</div>
+
+        <div id="ticker" class="ticker">
+          p1r4t3h00k — Seguridad desde las Sombras • Aprende, rompe y documenta (éticamente)
+        </div>
+
       </div>
 
-      <!-- (Footer vacío, sin ©) -->
+      <!-- Footer -->
       <footer></footer>
+
     </div>
+
   </div>
 
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // Mensaje tipo terminal
-    setTimeout(()=>{
-      const t=document.querySelector('.terminal-prompt');
-      if(t) t.textContent='p1r4t3h00k@projects:~$ Repos sincronizados. Despliega cuando quieras.';
-    },1400);
 
-    // ===== Canvas Matrix (idéntico a index/poc) =====
-    (function(){
-      const c=document.getElementById('matrix');
-      const ctx=c.getContext('2d');
-      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
+    // ===== Mensaje tipo terminal =====
+    setTimeout(() => {
+
+      const t = document.querySelector('.terminal-prompt');
+
+      if (t) {
+        t.textContent =
+          'p1r4t3h00k@projects:~$ Repos sincronizados. Despliega cuando quieras.';
+      }
+
+    }, 1400);
+
+
+    // ===== Canvas Matrix =====
+    (function () {
+
+      const c = document.getElementById('matrix');
+      const ctx = c.getContext('2d');
+
+      const fontSize = 16;
+      const letters = '01';
+
+      let drops = [];
+
+      function resize() {
+
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
+
+        const columns = Math.ceil(c.width / fontSize);
+
+        drops = Array(columns).fill(1);
+
+      }
+
       resize();
-      window.addEventListener('resize',resize);
 
-      const letters='01';
-      const fontSize=16;
-      const columns=Math.floor(c.width/fontSize);
-      const drops=Array(columns).fill(1);
+      window.addEventListener('resize', resize);
 
-      function draw(){
-        ctx.fillStyle='rgba(0,0,0,0.08)';
+      function draw() {
+
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
         ctx.fillRect(0,0,c.width,c.height);
 
-        ctx.fillStyle='rgba(255,255,255,0.85)';
-        ctx.font=fontSize+'px Share Tech Mono';
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+        ctx.font = fontSize + 'px Share Tech Mono';
 
-        for(let i=0;i<drops.length;i++){
-          const text=letters[Math.floor(Math.random()*letters.length)];
-          ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-          if(drops[i]*fontSize>c.height && Math.random()>0.975){drops[i]=0;}
+        for (let i = 0; i < drops.length; i++) {
+
+          const text =
+            letters[Math.floor(Math.random() * letters.length)];
+
+          ctx.fillText(
+            text,
+            i * fontSize,
+            drops[i] * fontSize
+          );
+
+          if (
+            drops[i] * fontSize > c.height &&
+            Math.random() > 0.975
+          ) {
+            drops[i] = 0;
+          }
+
           drops[i]++;
+
         }
+
         requestAnimationFrame(draw);
+
       }
+
       draw();
+
     })();
+
   </script>
+
 </body>
 </html>
