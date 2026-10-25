@@ -6,16 +6,29 @@
 
   <title>p1r4t3h00k | Biblioteca de Recursos</title>
 
-  <meta name="description"
-        content="Biblioteca de recursos educativos de p1r4t3h00k. Descarga guías de Linux, ciberseguridad, Blue Team y Red Team.">
+  <meta
+    name="description"
+    content="Biblioteca de recursos educativos de p1r4t3h00k. Descarga guías de Linux, ciberseguridad, Blue Team y Red Team."
+  >
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
-        rel="stylesheet">
+  <!-- FUENTES -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+  >
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        rel="stylesheet">
+  <!-- ICONOS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* ========================================
+       VARIABLES GENERALES
+    ======================================== */
+
     :root {
       --bg: #000000;
       --card: rgba(8, 8, 8, 0.88);
@@ -40,6 +53,7 @@
       color: var(--text);
       font-family: 'Share Tech Mono', monospace;
       min-height: 100vh;
+      position: relative;
       overflow-x: hidden;
     }
 
@@ -47,9 +61,9 @@
       color: inherit;
     }
 
-    /* =========================
+    /* ========================================
        FONDO MATRIX
-    ========================= */
+    ======================================== */
 
     #matrix {
       position: fixed;
@@ -64,102 +78,140 @@
       content: "";
       position: fixed;
       inset: 0;
-      background-image:
-        radial-gradient(
-          circle at 1px 1px,
-          rgba(255,255,255,.06) 1px,
-          transparent 0
-        );
-      background-size: 22px 22px;
+
+      background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255,255,255,.08) 1px,
+        transparent 0
+      );
+
+      background-size: 20px 20px;
       z-index: -1;
       pointer-events: none;
     }
 
-    /* =========================
+    /* ========================================
        ESTRUCTURA PRINCIPAL
-    ========================= */
+    ======================================== */
 
     #container {
       display: flex;
       min-height: 100vh;
     }
 
-    /* =========================
-       SIDEBAR
-    ========================= */
+    /* ========================================
+       MENÚ LATERAL
+       MISMO DISEÑO QUE INDEX.HTML
+    ======================================== */
 
     #sidebar {
-      width: 220px;
+      width: 200px;
       flex-shrink: 0;
-      background: rgba(0,0,0,.93);
-      backdrop-filter: blur(12px);
+
+      background: rgba(0,0,0,.9);
+      backdrop-filter: blur(10px);
+
       border-right: 2px solid #fff;
-      padding: 25px 15px;
+
+      padding: 20px;
+
       display: flex;
       flex-direction: column;
-      box-shadow: 0 0 25px rgba(255,255,255,.15);
+
+      box-shadow: 0 0 20px rgba(255,255,255,.25);
     }
+
+    /* ========================================
+       LOGOTIPO
+    ======================================== */
 
     #logo {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
+    }
+
+    #logo a {
+      display: inline-block;
+      text-decoration: none;
     }
 
     #logo img {
       width: 120px;
       height: 120px;
+
       object-fit: cover;
+
       border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 20px rgba(255,255,255,.35);
-      transition: .3s;
-    }
+      border: 2px solid #fff;
 
-    #logo img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 30px rgba(255,255,255,.65);
-    }
+      box-shadow: 0 0 15px rgba(255,255,255,.4);
 
-    .nav-link {
-      display: block;
-      text-decoration: none;
-      color: white;
-      padding: 15px 12px;
-      margin: 5px 0;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 13px;
-      font-weight: bold;
       transition: .25s;
     }
 
+    #logo img:hover {
+      transform: scale(1.06);
+
+      box-shadow: 0 0 24px rgba(255,255,255,.7);
+    }
+
+    /* ========================================
+       BOTONES DEL MENÚ
+    ======================================== */
+
+    #sidebar nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+
+      padding: 15px;
+      margin: 5px 0;
+
+      display: block;
+
+      border: 1px solid transparent;
+      border-radius: 8px;
+
+      transition: .2s;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      font-weight: bold;
+    }
+
     .nav-link i {
-      margin-right: 10px;
-      width: 18px;
+      color: #fff;
+      margin-right: 8px;
+      width: 16px;
       text-align: center;
     }
 
     .nav-link:hover {
-      background: var(--hover);
-      border-color: white;
+      background: rgba(255,255,255,.08);
+
+      border-color: #fff;
+
       transform: translateX(4px);
     }
 
     .nav-link.active {
-      background: rgba(255,255,255,.17);
-      border: 1px solid white;
+      background: rgba(255,255,255,.18);
+      border-color: #fff;
     }
 
-    /* =========================
-       CONTENIDO
-    ========================= */
+    /* ========================================
+       CONTENIDO PRINCIPAL
+    ======================================== */
 
     #content {
       flex: 1;
       min-width: 0;
-      padding: 45px;
+      padding: 40px;
     }
 
     .header {
@@ -168,101 +220,151 @@
 
     h1 {
       font-family: 'Orbitron', monospace;
+
       font-size: clamp(28px, 4vw, 55px);
       font-weight: 900;
+
       margin-bottom: 15px;
-      text-shadow: 0 0 20px rgba(255,255,255,.35);
+
+      text-shadow: 0 0 18px rgba(255,255,255,.45);
     }
 
     .subtitle {
-      color: #bcbcbc;
+      color: #cfcfcf;
+
       font-size: 15px;
+
       margin-bottom: 20px;
+
       letter-spacing: 2px;
     }
 
     .terminal {
       color: #fff;
+
       font-size: 14px;
+
       margin-bottom: 20px;
+
       line-height: 1.8;
+      font-weight: bold;
     }
 
     .terminal::before {
       content: ">";
+
       margin-right: 10px;
     }
 
     .description {
-      color: #d0d0d0;
+      color: #e6e6e6;
+
       font-size: 15px;
+
       line-height: 1.8;
-      max-width: 900px;
+
+      max-width: 980px;
     }
 
-    /* =========================
+    /* ========================================
        PANEL DE ESTADÍSTICAS
-    ========================= */
+    ======================================== */
 
     .stats {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 18px;
+
       margin: 30px 0;
     }
 
     .stat-box {
       background: var(--card);
+
       border: 1px solid rgba(255,255,255,.55);
+
       border-radius: 12px;
+
       padding: 20px;
+
       text-align: center;
+
+      transition: .25s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-4px);
+
+      border-color: #fff;
+
+      box-shadow: 0 10px 25px rgba(255,255,255,.15);
     }
 
     .stat-box i {
       font-size: 25px;
+
       margin-bottom: 12px;
     }
 
     .stat-number {
       display: block;
+
       font-family: 'Orbitron', monospace;
+
       font-size: 24px;
+
       margin-bottom: 8px;
     }
 
     .stat-label {
       font-size: 12px;
+
       color: var(--muted);
     }
 
-    /* =========================
-       BUSCADOR
-    ========================= */
+    /* ========================================
+       BUSCADOR DE DOCUMENTOS
+    ======================================== */
 
     .search-panel {
       display: flex;
+
       align-items: center;
+
       gap: 15px;
+
       background: rgba(0,0,0,.8);
-      border: 1px solid white;
+
+      border: 1px solid #fff;
+
       border-radius: 12px;
+
       padding: 16px 20px;
+
       margin: 30px 0 12px;
     }
 
     .search-panel i {
-      color: white;
+      color: #fff;
+
       font-size: 18px;
     }
 
     .search-panel input {
       width: 100%;
+
       background: transparent;
+
       border: none;
+
       outline: none;
-      color: white;
+
+      color: #fff;
+
       font-family: 'Share Tech Mono', monospace;
+
       font-size: 15px;
     }
 
@@ -272,47 +374,66 @@
 
     .resource-count {
       color: #aaa;
+
       font-size: 13px;
+
       margin-bottom: 25px;
     }
 
-    /* =========================
+    /* ========================================
        SECCIÓN DE RECURSOS
-    ========================= */
+    ======================================== */
 
     .section-title {
       font-family: 'Orbitron', monospace;
+
       font-size: 20px;
+
       margin: 30px 0 25px;
+
       padding-bottom: 15px;
+
       border-bottom: 1px solid rgba(255,255,255,.3);
     }
 
     .resources-grid {
       display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+      );
+
       gap: 25px;
     }
 
-    /* =========================
-       TARJETAS
-    ========================= */
+    /* ========================================
+       TARJETAS DE DOCUMENTOS
+    ======================================== */
 
     .resource-card {
       background: var(--card);
-      border: 2px solid white;
+
+      border: 2px solid #fff;
+
       border-radius: 16px;
+
       padding: 25px;
+
       position: relative;
+
       transition: .3s ease;
+
       box-shadow: 0 0 20px rgba(255,255,255,.12);
+
       display: flex;
+
       flex-direction: column;
     }
 
     .resource-card:hover {
       transform: translateY(-6px);
+
       box-shadow: 0 12px 30px rgba(255,255,255,.25);
     }
 
@@ -323,161 +444,246 @@
     .resource-icon {
       width: 65px;
       height: 65px;
-      border: 2px solid white;
+
+      border: 2px solid #fff;
+
       border-radius: 14px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       font-size: 30px;
+
       margin-bottom: 20px;
+
       box-shadow: 0 0 15px rgba(255,255,255,.15);
     }
 
     .resource-type {
       position: absolute;
+
       top: 15px;
+
       right: 15px;
-      border: 1px solid white;
+
+      border: 1px solid #fff;
+
       padding: 5px 12px;
+
       border-radius: 20px;
+
       font-size: 11px;
+
       font-weight: bold;
-      background: white;
-      color: black;
+
+      background: #fff;
+
+      color: #000;
     }
 
     .resource-title {
       font-family: 'Orbitron', monospace;
+
       font-size: 17px;
+
       line-height: 1.5;
+
       margin-bottom: 15px;
     }
 
     .resource-description {
       color: #c8c8c8;
+
       font-size: 14px;
+
       line-height: 1.8;
+
       margin-bottom: 20px;
+
       flex: 1;
     }
 
-    /* =========================
+    /* ========================================
        ETIQUETAS
-    ========================= */
+    ======================================== */
 
     .tags {
       display: flex;
+
       gap: 8px;
+
       flex-wrap: wrap;
+
       margin-bottom: 20px;
     }
 
     .tag {
       border: 1px solid rgba(255,255,255,.7);
+
       padding: 5px 10px;
+
       border-radius: 8px;
+
       font-size: 11px;
-      color: white;
+
+      color: #fff;
     }
 
-    /* =========================
-       BOTONES
-    ========================= */
+    /* ========================================
+       BOTONES DE DESCARGA
+    ======================================== */
 
     .resource-actions {
       display: flex;
+
       gap: 10px;
+
       flex-wrap: wrap;
+
       margin-top: auto;
     }
 
     .btn {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 8px;
+
       padding: 12px 15px;
-      border: 2px solid white;
+
+      border: 2px solid #fff;
+
       border-radius: 9px;
+
       text-decoration: none;
-      color: white;
+
+      color: #fff;
+
       font-family: 'Share Tech Mono', monospace;
+
       font-size: 12px;
+
       font-weight: bold;
+
       transition: .25s;
+
       cursor: pointer;
+
       flex: 1;
+
       white-space: nowrap;
     }
 
     .btn:hover {
-      background: white;
-      color: black;
+      background: #fff;
+
+      color: #000;
+
       transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: white;
-      color: black;
+      background: #fff;
+
+      color: #000;
     }
 
     .btn-primary:hover {
       background: #d6d6d6;
     }
 
-    /* =========================
-       SIN RESULTADOS
-    ========================= */
+    /* ========================================
+       MENSAJE SIN RESULTADOS
+    ======================================== */
 
     .empty-state {
       display: none;
+
       text-align: center;
+
       border: 1px dashed #777;
+
       border-radius: 12px;
+
       padding: 50px 20px;
+
       color: #aaa;
     }
 
     .empty-state i {
       font-size: 35px;
+
       margin-bottom: 15px;
     }
 
-    /* =========================
+    /* ========================================
        FOOTER
-    ========================= */
+    ======================================== */
 
     footer {
       margin-top: 60px;
+
       padding-top: 25px;
+
       border-top: 1px solid rgba(255,255,255,.3);
+
       text-align: center;
+
       color: #aaa;
+
       font-size: 13px;
+
       line-height: 2;
     }
 
     footer strong {
-      color: white;
+      color: #fff;
     }
 
-    /* =========================
+    /* ========================================
        RESPONSIVE
-    ========================= */
+    ======================================== */
 
     @media (max-width: 900px) {
+
       #container {
         flex-direction: column;
       }
 
       #sidebar {
         width: 100%;
+
         border-right: none;
-        border-bottom: 2px solid white;
+
+        border-bottom: 2px solid #fff;
       }
 
       #logo {
         margin-bottom: 15px;
+      }
+
+      #sidebar nav {
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 5px;
+      }
+
+      .nav-link {
+        font-size: 12px;
+
+        padding: 12px;
       }
 
       #content {
@@ -486,6 +692,11 @@
     }
 
     @media (max-width: 600px) {
+
+      h1 {
+        font-size: 28px;
+      }
+
       .stats {
         grid-template-columns: 1fr;
       }
@@ -501,76 +712,121 @@
       .btn {
         width: 100%;
       }
+
+      .section-title {
+        font-size: 16px;
+      }
+
+      .resource-title {
+        font-size: 15px;
+      }
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- FONDO MATRIX -->
+  <!-- ========================================
+       FONDO MATRIX
+  ======================================== -->
+
   <canvas id="matrix" aria-hidden="true"></canvas>
 
   <div id="container">
 
-    <!-- MENÚ LATERAL -->
+    <!-- ========================================
+         MENÚ LATERAL
+    ======================================== -->
+
     <aside id="sidebar">
 
+      <!-- LOGOTIPO -->
+
       <div id="logo">
+
         <a href="index.html">
+
           <img
-            src="p1r4t3h00k.png"
-            alt="Logo p1r4t3h00k"
+            src="assets/p1r4t3h00k_wallpaper.png"
+            alt="Logotipo de p1r4t3h00k"
           >
+
         </a>
+
       </div>
+
+      <!-- NAVEGACIÓN -->
 
       <nav aria-label="Navegación principal">
 
         <a href="index.html" class="nav-link">
+
           <i class="fas fa-home"></i>
           Inicio
+
         </a>
 
         <a href="poc.html" class="nav-link">
+
           <i class="fas fa-terminal"></i>
           Laboratorio
+
         </a>
 
         <a href="projects.html" class="nav-link">
+
           <i class="fas fa-code"></i>
           Proyectos
+
         </a>
 
         <a href="guides.html" class="nav-link">
+
           <i class="fas fa-book"></i>
           Guías
+
+        </a>
+
+        <a
+          href="resources.html"
+          class="nav-link active"
+          aria-current="page"
+        >
+
+          <i class="fas fa-file-pdf"></i>
+          Recursos PDF
+
         </a>
 
         <a href="blog.html" class="nav-link">
+
           <i class="fas fa-pen-nib"></i>
           Blog
+
         </a>
 
         <a href="contact.html" class="nav-link">
+
           <i class="fas fa-envelope"></i>
           Contacto
-        </a>
 
-        <a href="resources.html"
-           class="nav-link active"
-           aria-current="page">
-          <i class="fas fa-file-pdf"></i>
-          Recursos PDF
         </a>
 
       </nav>
 
     </aside>
 
-    <!-- CONTENIDO -->
+    <!-- ========================================
+         CONTENIDO PRINCIPAL
+    ======================================== -->
+
     <main id="content">
 
-      <!-- ENCABEZADO -->
+      <!-- ========================================
+           ENCABEZADO
+      ======================================== -->
+
       <header class="header">
 
         <h1>
@@ -586,6 +842,7 @@
         </p>
 
         <p class="description">
+
           Bienvenido a mi biblioteca digital.
 
           Aquí encontrarás documentación técnica,
@@ -599,18 +856,30 @@
 
           Todos los recursos publicados en esta
           sección podrán consultarse gratuitamente.
+
         </p>
 
       </header>
 
-      <!-- ESTADÍSTICAS -->
-      <section class="stats" aria-label="Información de la biblioteca">
+      <!-- ========================================
+           ESTADÍSTICAS
+      ======================================== -->
+
+      <section
+        class="stats"
+        aria-label="Información de la biblioteca"
+      >
+
+        <!-- DOCUMENTOS -->
 
         <div class="stat-box">
 
           <i class="fas fa-file-pdf"></i>
 
-          <span class="stat-number" id="total-resources">
+          <span
+            class="stat-number"
+            id="total-resources"
+          >
             0
           </span>
 
@@ -619,6 +888,8 @@
           </span>
 
         </div>
+
+        <!-- FORMATO -->
 
         <div class="stat-box">
 
@@ -633,6 +904,8 @@
           </span>
 
         </div>
+
+        <!-- ACCESO -->
 
         <div class="stat-box">
 
@@ -650,8 +923,14 @@
 
       </section>
 
-      <!-- BUSCADOR -->
-      <label class="search-panel" for="searchInput">
+      <!-- ========================================
+           BUSCADOR
+      ======================================== -->
+
+      <label
+        class="search-panel"
+        for="searchInput"
+      >
 
         <i class="fas fa-search"></i>
 
@@ -664,13 +943,22 @@
 
       </label>
 
-      <p class="resource-count" id="resourceCount"
-         aria-live="polite"></p>
+      <!-- CONTADOR DE RESULTADOS -->
 
-      <!-- BIBLIOTECA -->
+      <p
+        class="resource-count"
+        id="resourceCount"
+        aria-live="polite"
+      ></p>
+
+      <!-- ========================================
+           DOCUMENTACIÓN DISPONIBLE
+      ======================================== -->
+
       <h2 class="section-title">
 
         <i class="fas fa-folder-open"></i>
+
         DOCUMENTACIÓN DISPONIBLE
 
       </h2>
@@ -681,26 +969,39 @@
         aria-label="Recursos descargables"
       >
 
-        <!-- ==================================
-             RECURSO 1: ARCH LINUX
-        =================================== -->
+        <!-- ========================================
+             RECURSO 1
+             GUÍA ARCH LINUX 2026
+        ======================================== -->
 
         <article
           class="resource-card"
           data-search="arch linux archinstall xfce instalación tutorial guía 2026"
         >
 
+          <!-- TIPO -->
+
           <span class="resource-type">
             PDF
           </span>
 
+          <!-- ICONO -->
+
           <div class="resource-icon">
+
             <i class="fab fa-linux"></i>
+
           </div>
 
+          <!-- TÍTULO -->
+
           <h3 class="resource-title">
+
             Guía de instalación de Arch Linux 2026
+
           </h3>
+
+          <!-- DESCRIPCIÓN -->
 
           <p class="resource-description">
 
@@ -713,6 +1014,8 @@
             durante la instalación.
 
           </p>
+
+          <!-- ETIQUETAS -->
 
           <div class="tags">
 
@@ -734,27 +1037,37 @@
 
           </div>
 
+          <!-- BOTONES -->
+
           <div class="resource-actions">
+
+            <!-- VISUALIZAR PDF -->
 
             <a
               href="recursos/guia-arch-linux.pdf"
               target="_blank"
               rel="noopener noreferrer"
               class="btn"
+              aria-label="Ver guía de instalación de Arch Linux"
             >
 
               <i class="fas fa-eye"></i>
+
               VER PDF
 
             </a>
+
+            <!-- DESCARGAR PDF -->
 
             <a
               href="recursos/guia-arch-linux.pdf"
               download="Guia-Arch-Linux.pdf"
               class="btn btn-primary"
+              aria-label="Descargar guía de instalación de Arch Linux"
             >
 
               <i class="fas fa-download"></i>
+
               DESCARGAR
 
             </a>
@@ -763,14 +1076,20 @@
 
         </article>
 
-        <!-- ==================================
-             AQUÍ PODRÁS AGREGAR MÁS RECURSOS
-        =================================== -->
+        <!-- ========================================
+             AGREGA MÁS RECURSOS AQUÍ
+        ======================================== -->
 
       </section>
 
-      <!-- SIN RESULTADOS -->
-      <div class="empty-state" id="emptyState">
+      <!-- ========================================
+           SIN RESULTADOS
+      ======================================== -->
+
+      <div
+        class="empty-state"
+        id="emptyState"
+      >
 
         <i class="fas fa-search"></i>
 
@@ -780,12 +1099,18 @@
 
       </div>
 
-      <!-- FOOTER -->
+      <!-- ========================================
+           PIE DE PÁGINA
+      ======================================== -->
+
       <footer>
 
         <p>
+
           <strong>p1r4t3h00k</strong>
+
           — Seguridad desde las Sombras
+
         </p>
 
         <p>
@@ -793,8 +1118,11 @@
         </p>
 
         <p>
+
           © <span id="year"></span>
+
           p1r4t3h00k
+
         </p>
 
       </footer>
@@ -803,106 +1131,141 @@
 
   </div>
 
+  <!-- ========================================
+       JAVASCRIPT
+  ======================================== -->
+
   <script>
 
-    /* =========================
-       MATRIX BACKGROUND
-    ========================= */
+    /* ========================================
+       EFECTO MATRIX
+    ======================================== */
 
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
+    (function () {
 
-    const fontSize = 16;
-    const characters = "01";
+      const canvas = document.getElementById("matrix");
 
-    let drops = [];
-    let columns = 0;
+      const ctx = canvas.getContext("2d");
 
-    function resizeCanvas() {
+      if (!ctx) {
+        return;
+      }
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const fontSize = 16;
 
-      columns = Math.ceil(canvas.width / fontSize);
+      const characters = "01";
 
-      drops = Array.from(
-        { length: columns },
-        () => Math.floor(Math.random() * -40)
-      );
+      let drops = [];
 
-    }
+      let columns = 0;
 
-    resizeCanvas();
+      function resizeCanvas() {
 
-    window.addEventListener("resize", resizeCanvas);
+        canvas.width = window.innerWidth;
 
-    function drawMatrix() {
+        canvas.height = window.innerHeight;
 
-      ctx.fillStyle = "rgba(0,0,0,0.08)";
-
-      ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-
-      ctx.fillStyle = "rgba(255,255,255,0.75)";
-
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-
-        const character =
-          characters.charAt(
-            Math.floor(Math.random() * characters.length)
-          );
-
-        ctx.fillText(
-          character,
-          i * fontSize,
-          drops[i] * fontSize
+        columns = Math.ceil(
+          canvas.width / fontSize
         );
 
-        if (
-          drops[i] * fontSize > canvas.height &&
-          Math.random() > 0.975
-        ) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
+        drops = Array.from(
+          { length: columns },
+          () => Math.floor(Math.random() * -40)
+        );
 
       }
 
-      requestAnimationFrame(drawMatrix);
+      resizeCanvas();
 
-    }
+      window.addEventListener(
+        "resize",
+        resizeCanvas
+      );
 
-    if (ctx) {
+      function drawMatrix() {
+
+        ctx.fillStyle = "rgba(0,0,0,0.08)";
+
+        ctx.fillRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+        ctx.fillStyle = "rgba(255,255,255,0.75)";
+
+        ctx.font = fontSize + "px Share Tech Mono";
+
+        for (let i = 0; i < drops.length; i++) {
+
+          const character = characters.charAt(
+            Math.floor(
+              Math.random() * characters.length
+            )
+          );
+
+          ctx.fillText(
+            character,
+            i * fontSize,
+            drops[i] * fontSize
+          );
+
+          if (
+            drops[i] * fontSize > canvas.height &&
+            Math.random() > 0.975
+          ) {
+
+            drops[i] = 0;
+
+          }
+
+          drops[i]++;
+
+        }
+
+        requestAnimationFrame(drawMatrix);
+
+      }
+
       drawMatrix();
-    }
 
-    /* =========================
+    })();
+
+    /* ========================================
        BUSCADOR DE RECURSOS
-    ========================= */
+    ======================================== */
 
-    const searchInput =
-      document.getElementById("searchInput");
+    const searchInput = document.getElementById(
+      "searchInput"
+    );
 
-    const resourceCards =
-      document.querySelectorAll(".resource-card");
+    const resourceCards = document.querySelectorAll(
+      ".resource-card"
+    );
 
-    const resourceCount =
-      document.getElementById("resourceCount");
+    const resourceCount = document.getElementById(
+      "resourceCount"
+    );
 
-    const emptyState =
-      document.getElementById("emptyState");
+    const emptyState = document.getElementById(
+      "emptyState"
+    );
 
-    const totalResources =
-      document.getElementById("total-resources");
+    const totalResources = document.getElementById(
+      "total-resources"
+    );
+
+    /* ========================================
+       CONTADOR TOTAL DE DOCUMENTOS
+    ======================================== */
 
     totalResources.textContent = resourceCards.length;
+
+    /* ========================================
+       NORMALIZAR TEXTO
+    ======================================== */
 
     function normalizeText(text) {
 
@@ -913,10 +1276,15 @@
 
     }
 
+    /* ========================================
+       FUNCIÓN DE BÚSQUEDA
+    ======================================== */
+
     function searchResources() {
 
-      const searchTerm =
-        normalizeText(searchInput.value.trim());
+      const searchTerm = normalizeText(
+        searchInput.value.trim()
+      );
 
       let visibleResources = 0;
 
@@ -932,32 +1300,50 @@
         card.hidden = !match;
 
         if (match) {
+
           visibleResources++;
+
         }
 
       });
 
+      /* ACTUALIZAR CONTADOR */
+
       resourceCount.textContent =
         visibleResources +
-        (visibleResources === 1
-          ? " recurso disponible"
-          : " recursos disponibles");
+        (
+          visibleResources === 1
+            ? " recurso disponible"
+            : " recursos disponibles"
+        );
+
+      /* MOSTRAR MENSAJE SI NO HAY RESULTADOS */
 
       emptyState.style.display =
-        visibleResources === 0 ? "block" : "none";
+        visibleResources === 0
+          ? "block"
+          : "none";
 
     }
+
+    /* ========================================
+       EVENTO DEL BUSCADOR
+    ======================================== */
 
     searchInput.addEventListener(
       "input",
       searchResources
     );
 
+    /* ========================================
+       EJECUTAR BÚSQUEDA INICIAL
+    ======================================== */
+
     searchResources();
 
-    /* =========================
+    /* ========================================
        AÑO AUTOMÁTICO
-    ========================= */
+    ======================================== */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
