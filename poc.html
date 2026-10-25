@@ -10,293 +10,676 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      background:#000;
-      color:#fff;
-      font-family:'Share Tech Mono',monospace;
-      min-height:100vh;
-      position:relative;
-      overflow-x:hidden;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* ===== Fondo Matrix (blanco/gris) ===== */
-    #matrix{
-      position:fixed;inset:0;
-      z-index:-2;
-      background:#000;
+    html, body {
+      height: 100%;
     }
-    /* Neblina de puntos tenue encima del matrix */
-    body::before{
-      content:"";position:fixed;inset:0;
-      background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);
-      background-size:20px 20px;
-      z-index:-1; pointer-events:none;
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== Fondo Matrix ===== */
+
+    #matrix {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: #000;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255,255,255,.08) 1px,
+        transparent 0
+      );
+      background-size: 20px 20px;
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* ===== Layout ===== */
-    #container{display:flex;min-height:100vh}
-    #sidebar{
-      width:200px;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);
-      border-right:2px solid #fff;padding:20px;display:flex;flex-direction:column;
-      box-shadow:0 0 20px rgba(255,255,255,.25)
-    }
-    #logo{text-align:center;margin-bottom:30px}
-    #logo img{
-      width:120px;border-radius:50%;border:2px solid #fff;
-      box-shadow:0 0 15px rgba(255,255,255,.4);transition:.25s
-    }
-    #logo img:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(255,255,255,.7)}
-    .nav-link{
-      color:#fff;text-decoration:none;padding:15px;margin:5px 0;display:block;
-      border:1px solid rgba(255,255,255,0);border-radius:8px;transition:.2s;
-      text-transform:uppercase;letter-spacing:1px;font-weight:bold
-    }
-    .nav-link i{color:#fff;margin-right:8px;width:16px;text-align:center}
-    .nav-link:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateX(4px)}
-    .nav-link.active{background:rgba(255,255,255,.18);border-color:#fff}
-    #content{flex:1;padding:40px}
 
-    h1{
-      font-family:'Orbitron',monospace;font-size:3.8em;color:#fff;
-      text-shadow:0 0 18px rgba(255,255,255,.45);
-      margin-bottom:10px
-    }
-    .subtitle{font-size:1.1em;color:#cfcfcf;margin-bottom:24px}
-    .terminal-prompt{color:#eaeaea;font-weight:bold;margin-bottom:26px}
-    .description{
-      font-size:1.05em;line-height:1.8;color:#e6e6e6;
-      margin-bottom:28px;max-width:980px
+    #container {
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* ===== Grid estilo “arsenal” ===== */
-    .poc-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-      gap:24px;
-      margin-top:10px;
+    #sidebar {
+      width: 200px;
+      background: rgba(0,0,0,.9);
+      backdrop-filter: blur(10px);
+      border-right: 2px solid #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(255,255,255,.25);
     }
-    .poc-card{
-      background:rgba(0,0,0,.65);
-      border:2px solid #fff;
-      border-radius:16px;
-      padding:22px;
-      position:relative;
-      box-shadow:0 0 20px rgba(255,255,255,.15);
-      transition:.25s ease;
+
+    #logo {
+      text-align: center;
+      margin-bottom: 30px;
     }
-    .poc-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 10px 28px rgba(255,255,255,.25);
-      border-color:#e6e6e6;
+
+    #logo img {
+      width: 120px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,.4);
+      transition: .25s;
     }
-    .pill{
-      position:absolute;top:10px;right:10px;
-      font-size:.72rem;letter-spacing:.6px;
-      border:2px solid #fff;border-radius:999px;padding:3px 10px;
-      color:#111;background:#fff;font-weight:bold
+
+    #logo img:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 24px rgba(255,255,255,.7);
     }
-    .poc-title{
-      display:block;
-      font-family:'Orbitron',monospace;
-      font-size:1.25rem;margin:8px 0 6px 0
+
+    /* ===== Navegación ===== */
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px;
+      margin: 5px 0;
+      display: block;
+      border: 1px solid rgba(255,255,255,0);
+      border-radius: 8px;
+      transition: .2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
     }
-    .meta{ display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px 0 }
-    .meta .badge{
-      border:2px solid #fff;border-radius:12px;padding:2px 8px;
-      font-size:.78rem;color:#fff
+
+    .nav-link i {
+      color: #fff;
+      margin-right: 8px;
+      width: 16px;
+      text-align: center;
     }
-    .poc-desc{color:#d5d5d5;font-size:.98rem;line-height:1.55;min-height:92px}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      margin-top:16px;padding:10px 14px;border:2px solid #fff;border-radius:10px;
-      color:#fff;text-decoration:none;font-weight:bold;transition:.2s
+
+    .nav-link:hover {
+      background: rgba(255,255,255,.08);
+      border-color: #fff;
+      transform: translateX(4px);
     }
-    .btn:hover{background:#fff;color:#000;transform:translateY(-2px)}
-    .btn i{width:16px;text-align:center}
+
+    .nav-link.active {
+      background: rgba(255,255,255,.18);
+      border-color: #fff;
+    }
+
+    /* ===== Contenido ===== */
+
+    #content {
+      flex: 1;
+      min-width: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 3.8em;
+      color: #fff;
+      text-shadow: 0 0 18px rgba(255,255,255,.45);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: #cfcfcf;
+      margin-bottom: 24px;
+    }
+
+    .terminal-prompt {
+      color: #eaeaea;
+      font-weight: bold;
+      margin-bottom: 26px;
+    }
+
+    .description {
+      font-size: 1.05em;
+      line-height: 1.8;
+      color: #e6e6e6;
+      margin-bottom: 28px;
+      max-width: 980px;
+    }
+
+    /* ===== Grid de herramientas ===== */
+
+    .poc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .poc-card {
+      background: rgba(0,0,0,.65);
+      border: 2px solid #fff;
+      border-radius: 16px;
+      padding: 22px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(255,255,255,.15);
+      transition: .25s ease;
+    }
+
+    .poc-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(255,255,255,.25);
+      border-color: #e6e6e6;
+    }
+
+    .pill {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: .72rem;
+      letter-spacing: .6px;
+      border: 2px solid #fff;
+      border-radius: 999px;
+      padding: 3px 10px;
+      color: #111;
+      background: #fff;
+      font-weight: bold;
+    }
+
+    .poc-title {
+      display: block;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.25rem;
+      margin: 8px 0 6px 0;
+    }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 16px 0;
+    }
+
+    .meta .badge {
+      border: 2px solid #fff;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: .78rem;
+      color: #fff;
+    }
+
+    .poc-desc {
+      color: #d5d5d5;
+      font-size: .98rem;
+      line-height: 1.55;
+      min-height: 92px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .btn i {
+      width: 16px;
+      text-align: center;
+    }
 
     /* ===== Ticker ===== */
-    .ticker-container{
-      margin-top:36px;border-top:1px solid rgba(255,255,255,.25);
-      padding-top:14px;text-align:center;overflow:hidden
-    }
-    .ticker{
-      font-size:1.02rem;color:#cfcfcf;text-shadow:0 0 10px rgba(255,255,255,.25);
-      white-space:nowrap;display:inline-block;
-      animation:scrollText 18s linear infinite
-    }
-    @keyframes scrollText {0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
-    @media (max-width:768px){
-      #container{flex-direction:column}
-      #sidebar{width:100%;border-right:none;border-bottom:2px solid #fff}
-      h1{font-size:2.6em}
+    .ticker-container {
+      margin-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding-top: 14px;
+      text-align: center;
+      overflow: hidden;
     }
+
+    .ticker {
+      font-size: 1.02rem;
+      color: #cfcfcf;
+      text-shadow: 0 0 10px rgba(255,255,255,.25);
+      white-space: nowrap;
+      display: inline-block;
+      animation: scrollText 18s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ===== Responsive ===== */
+
+    @media (max-width: 768px) {
+
+      #container {
+        flex-direction: column;
+      }
+
+      #sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #fff;
+      }
+
+      #content {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 2.6em;
+      }
+
+      .poc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
+
 <body>
-  <!-- Canvas del efecto Matrix -->
+
+  <!-- Canvas Matrix -->
   <canvas id="matrix"></canvas>
 
   <div id="container">
+
+    <!-- ===== SIDEBAR ===== -->
+
     <div id="sidebar">
+
       <div id="logo">
-        <img src="assets/p1r4t3h00k_wallpaper.png" alt="p1r4t3h00k logo">
+        <img
+          src="assets/p1r4t3h00k_wallpaper.png"
+          alt="p1r4t3h00k logo"
+        >
       </div>
 
-      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
-      <a href="poc.html" class="nav-link active"><i class="fas fa-terminal"></i>Laboratorio</a>
-      <a href="projects.html" class="nav-link"><i class="fas fa-code"></i>Proyectos</a>
-      <a href="guides.html" class="nav-link"><i class="fas fa-book"></i>Guías</a>
-      <a href="blog.html" class="nav-link"><i class="fas fa-pen-nib"></i>Blog</a>
-      <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contacto</a>
+      <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i>Inicio
+      </a>
+
+      <a href="poc.html" class="nav-link active">
+        <i class="fas fa-terminal"></i>Laboratorio
+      </a>
+
+      <a href="projects.html" class="nav-link">
+        <i class="fas fa-code"></i>Proyectos
+      </a>
+
+      <a href="guides.html" class="nav-link">
+        <i class="fas fa-book"></i>Guías
+      </a>
+
+      <!-- ===== NUEVO MÓDULO RECURSOS PDF ===== -->
+
+      <a href="resources.html" class="nav-link">
+        <i class="fas fa-file-pdf"></i>Recursos PDF
+      </a>
+
+      <!-- ===== FIN NUEVO MÓDULO ===== -->
+
+      <a href="blog.html" class="nav-link">
+        <i class="fas fa-pen-nib"></i>Blog
+      </a>
+
+      <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i>Contacto
+      </a>
+
     </div>
 
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+
     <div id="content">
+
       <h1>Laboratorio Digital</h1>
-      <p class="subtitle">@p1r4t3h00k</p>
-      <p class="terminal-prompt">p1r4t3h00k@lab:~$ Entorno de desarrollo activo. Cargando módulos personales...</p>
+
+      <p class="subtitle">
+        @p1r4t3h00k
+      </p>
+
+      <p class="terminal-prompt">
+        p1r4t3h00k@lab:~$ Entorno de desarrollo activo. Cargando módulos personales...
+      </p>
 
       <div class="description">
         Herramientas personales. Cada tarjeta enlaza al repositorio correspondiente.
       </div>
 
-      <!-- ===== Grid de PoC / Proyectos ===== -->
+      <!-- ===== GRID DE HERRAMIENTAS ===== -->
+
       <section class="poc-grid">
 
         <!-- WRITEUPS -->
+
         <article class="poc-card">
+
           <span class="pill">WRITEUPS</span>
-          <span class="poc-title">Write-Up Collections</span>
+
+          <span class="poc-title">
+            Write-Up Collections
+          </span>
+
           <div class="meta">
             <span class="badge">HTB</span>
             <span class="badge">Notas</span>
           </div>
-          <p class="poc-desc">Repositorio de writeups y notas técnicas de laboratorio: enumeración, explotación y post-explotación.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Write-up" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
+
+          <p class="poc-desc">
+            Repositorio de writeups y notas técnicas de laboratorio:
+            enumeración, explotación y post-explotación.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/gabrie1Hz/Write-up"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-code-branch"></i>
+            POC REPOSITORY
           </a>
+
         </article>
 
         <!-- NIP BRUTEFORCE AUDIT -->
+
         <article class="poc-card">
+
           <span class="pill">HERRAMIENTA</span>
-          <span class="poc-title">NIP Bruteforce Audit</span>
+
+          <span class="poc-title">
+            NIP Bruteforce Audit
+          </span>
+
           <div class="meta">
             <span class="badge">Python</span>
             <span class="badge">Auditoría</span>
           </div>
-          <p class="poc-desc">Script para evaluación de fortaleza de NIPs en entornos controlados, con opciones de diccionario y reglas.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/nip-bruteforce-audit" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
+
+          <p class="poc-desc">
+            Script para evaluación de fortaleza de NIPs en entornos
+            controlados, con opciones de diccionario y reglas.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/gabrie1Hz/nip-bruteforce-audit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-code-branch"></i>
+            POC REPOSITORY
           </a>
+
         </article>
 
         <!-- GOOGLE DORKING TOOL -->
+
         <article class="poc-card">
+
           <span class="pill">HERRAMIENTA</span>
-          <span class="poc-title">Google Dorking Tool</span>
+
+          <span class="poc-title">
+            Google Dorking Tool
+          </span>
+
           <div class="meta">
             <span class="badge">Búsqueda</span>
             <span class="badge">OSINT</span>
           </div>
-          <p class="poc-desc">Utilidad para agilizar dorks específicos y hallar superficies de ataque expuestas públicamente.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Herramienta-Google-Dorking" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
+
+          <p class="poc-desc">
+            Utilidad para agilizar dorks específicos y hallar
+            superficies de ataque expuestas públicamente.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/gabrie1Hz/Herramienta-Google-Dorking"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-code-branch"></i>
+            POC REPOSITORY
           </a>
+
         </article>
 
         <!-- BASH + NMAP TOOLKIT -->
+
         <article class="poc-card">
+
           <span class="pill">HERRAMIENTA</span>
-          <span class="poc-title">Bash + Nmap Toolkit</span>
+
+          <span class="poc-title">
+            Bash + Nmap Toolkit
+          </span>
+
           <div class="meta">
             <span class="badge">Bash</span>
             <span class="badge">Nmap</span>
           </div>
-          <p class="poc-desc">Colección de scripts para automatizar escaneos Nmap y parseo de resultados durante la fase de reconocimiento.</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/Herramienta-Bash-Nmap" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
+
+          <p class="poc-desc">
+            Colección de scripts para automatizar escaneos Nmap
+            y parseo de resultados durante la fase de reconocimiento.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/gabrie1Hz/Herramienta-Bash-Nmap"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-code-branch"></i>
+            POC REPOSITORY
           </a>
+
         </article>
 
         <!-- SNIFFING FTP & TELNET -->
+
         <article class="poc-card">
+
           <span class="pill">HERRAMIENTA</span>
-          <span class="poc-title">Sniffing FTP & Telnet</span>
+
+          <span class="poc-title">
+            Sniffing FTP & Telnet
+          </span>
+
           <div class="meta">
             <span class="badge">Redes</span>
             <span class="badge">Sniffing</span>
           </div>
-          <p class="poc-desc">Herramienta didáctica para inspección de tráfico FTP/Telnet en entornos de laboratorio (uso ético).</p>
-          <a class="btn" href="https://github.com/gabrie1Hz/HERRAMIENTA-SNIFING-FTP-Y-TELNET" target="_blank" rel="noopener">
-            <i class="fas fa-code-branch"></i> POC REPOSITORY
+
+          <p class="poc-desc">
+            Herramienta didáctica para inspección de tráfico
+            FTP/Telnet en entornos de laboratorio (uso ético).
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/gabrie1Hz/HERRAMIENTA-SNIFING-FTP-Y-TELNET"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-code-branch"></i>
+            POC REPOSITORY
           </a>
+
         </article>
 
       </section>
 
-      <!-- ===== Ticker ===== -->
+      <!-- ===== TICKER ===== -->
+
       <div class="ticker-container">
-        <div id="ticker" class="ticker">p1r4t3h00k — Seguridad desde las Sombras</div>
+
+        <div id="ticker" class="ticker">
+          p1r4t3h00k — Seguridad desde las Sombras
+        </div>
+
       </div>
+
     </div>
+
   </div>
 
-  <script>
-    // Mensaje de la terminal
-    setTimeout(()=>{
-      const t=document.querySelector('.terminal-prompt');
-      if(t) t.textContent='p1r4t3h00k@lab:~$ Sistema operativo estable. Preparado para experimentar.';
-    },1800);
+  <!-- ===== JAVASCRIPT ===== -->
 
-    // ===== Canvas Matrix (blanco/gris) =====
-    (function(){
-      const c=document.getElementById('matrix');
-      const ctx=c.getContext('2d');
-      const resize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
-      resize();
-      window.addEventListener('resize',resize);
+  <script>
+
+    // ===== Mensaje de terminal =====
+
+    setTimeout(() => {
+
+      const terminal = document.querySelector('.terminal-prompt');
+
+      if (terminal) {
+        terminal.textContent =
+          'p1r4t3h00k@lab:~$ Sistema operativo estable. Preparado para experimentar.';
+      }
+
+    }, 1800);
+
+
+    // ===== Efecto Matrix =====
+
+    (function () {
+
+      const canvas = document.getElementById('matrix');
+
+      const ctx = canvas.getContext('2d');
+
+      const fontSize = 16;
 
       const letters = '01';
-      const fontSize = 16;
-      const columns = Math.floor(c.width / fontSize);
-      const drops = Array(columns).fill(1);
 
-      function draw(){
-        ctx.fillStyle='rgba(0,0,0,0.08)';
-        ctx.fillRect(0,0,c.width,c.height);
+      let drops = [];
 
-        ctx.fillStyle='rgba(255,255,255,0.85)';
-        ctx.font=fontSize+'px Share Tech Mono';
+      function resize() {
 
-        for(let i=0;i<drops.length;i++){
-          const text = letters[Math.floor(Math.random()*letters.length)];
-          ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-          if(drops[i]*fontSize > c.height && Math.random()>0.975){
-            drops[i]=0;
-          }
-          drops[i]++;
-        }
-        requestAnimationFrame(draw);
+        const columns = Math.ceil(canvas.width / fontSize);
+
+        drops = Array(columns).fill(1);
+
       }
+
+      resize();
+
+      window.addEventListener('resize', resize);
+
+      function draw() {
+
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
+
+        ctx.fillRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+
+        ctx.font = fontSize + 'px Share Tech Mono';
+
+        for (let i = 0; i < drops.length; i++) {
+
+          const character =
+            letters[Math.floor(Math.random() * letters.length)];
+
+          ctx.fillText(
+            character,
+            i * fontSize,
+            drops[i] * fontSize
+          );
+
+          if (
+            drops[i] * fontSize > canvas.height &&
+            Math.random() > 0.975
+          ) {
+            drops[i] = 0;
+          }
+
+          drops[i]++;
+
+        }
+
+        requestAnimationFrame(draw);
+
+      }
+
       draw();
+
     })();
 
-    // ===== Rotación opcional del ticker =====
-    const phrases=[
+
+    // ===== Rotación del ticker =====
+
+    const phrases = [
+
       'p1r4t3h00k — Seguridad desde las Sombras',
+
       'Arsenal • Desarrollo • Redes • Auditorías',
+
       'Aprender, documentar y compartir conocimiento'
+
     ];
-    let i=0;
-    const ticker=document.getElementById('ticker');
-    setInterval(()=>{
-      i=(i+1)%phrases.length;
-      if(ticker) ticker.textContent=phrases[i];
-    },7000);
+
+    let phraseIndex = 0;
+
+    const ticker = document.getElementById('ticker');
+
+    setInterval(() => {
+
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+
+      if (ticker) {
+        ticker.textContent = phrases[phraseIndex];
+      }
+
+    }, 7000);
+
   </script>
+
 </body>
 </html>
